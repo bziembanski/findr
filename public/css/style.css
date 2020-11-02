@@ -1,0 +1,89 @@
+body{
+    margin: 0;
+}
+*{
+    font-family: sans-serif;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    background: transparent linear-gradient(180deg, #880000 0%, #000000 100%) 0% 0% no-repeat padding-box;
+    display: flex;
+    flex-direction: column;
+}
+.logo-container{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-top:5vh;
+    width:85%;
+    align-items: center;
+    justify-content: center;
+}
+.logo-container *{
+    color: #ffffff80;
+}
+.logo-svg{
+    height:20vh;
+}
+.logo-svg img{
+    height: 100%;
+}
+.logo-text{
+    font-size: 2.5em;
+    margin-left:5vw;
+    background: #00000080;
+    border-radius: 30px;
+    width:70vw;
+    height: 20vh;
+    line-height: 20vh;
+    text-align: center;
+}
+.forms-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width:85%;
+    height: 60vh;
+    align-items: center;
+    background: transparent linear-gradient(180deg, #00000047 0%, #16161647 100%) 0% 0% no-repeat padding-box;
+    border-radius: 30px;
+    margin:auto;
+
+}
+.forms-container div{
+    height: 100%;
+    width:50%;
+}
+.sing-up-form{
+    border-right-style: solid;
+    border-right-color: #ffffff80;
+    border-right-width: 1px;
+}
+.forms-container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
+.forms-container input{
+    background: white;
+    border:none;
+    color:#565656;
+    border-radius: 32px;
+    width:50%;
+    height: 3vh;
+    margin-bottom: 3vh;
+    padding:1vw;
+}
+.forms-container button{
+    background:#880000;
+    border:none;
+    color:white;
+    border-radius: 32px;
+    width:55%;
+    height: 7vh;
+    line-height: 3vh;
+}
+

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="465" height="231.157" viewBox="0 0 465 231.157">
+  <g id="Group_5" data-name="Group 5" transform="translate(-686 -57)">
+    <g id="MOUSE_VECTOR" data-name="MOUSE VECTOR" transform="translate(686 57)" opacity="0.5">
+      <g id="Group_2" data-name="Group 2" transform="translate(112.232)">
+        <path id="Path_4" data-name="Path 4" d="M871.748,227.81c0,63.832-51.933,115.577-116,115.577q-3.222,0-6.4-.175h-222q-3.181.174-6.4.175c-.658,0-1.314-.008-1.969-.019V112.249c.655-.011,1.311-.019,1.969-.019q3.222,0,6.4.175h222q3.181-.17,6.4-.175C819.815,112.23,871.748,163.978,871.748,227.81Z" transform="translate(-518.98 -112.23)"/>
+      </g>
+      <g id="Group_3" data-name="Group 3" transform="translate(0.003 0.464)">
+        <path id="Path_5" data-name="Path 5" d="M171.019,208.941c14.418,0,26.662,5.372,31.058,12.839V113.97A114.258,114.258,0,0,0,98.25,223.551h40.834C142.474,215.177,155.486,208.941,171.019,208.941Z" transform="translate(-98.25 -113.97)"/>
+      </g>
+      <g id="Group_4" data-name="Group 4" transform="translate(0 121.112)">
+        <path id="Path_6" data-name="Path 6" d="M171.233,571.13c-15.682,0-28.79-6.357-32.029-14.85H98.24A114.263,114.263,0,0,0,202.069,665.863V558.654C197.495,565.931,185.416,571.13,171.233,571.13Z" transform="translate(-98.24 -556.28)"/>
+      </g>
+    </g>
+    <text id="findr" transform="translate(957 198)" fill="rgba(255,255,255,0.5)" font-size="64" font-family="sans-serif" letter-spacing="0.03em"><tspan x="-69.684" y="0">findr</tspan></text>
+  </g>
+</svg>
