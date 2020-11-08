@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    font-size:11px;
 }
 *{
     font-family: sans-serif;
@@ -10,6 +11,7 @@ body{
     background: transparent linear-gradient(180deg, #880000 0%, #000000 100%) 0% 0% no-repeat padding-box;
     display: flex;
     flex-direction: column;
+    overflow: auto;
 }
 .logo-container{
     display: flex;
@@ -38,6 +40,8 @@ body{
     height: 20vh;
     line-height: 20vh;
     text-align: center;
+    text-overflow: clip;
+    overflow: hidden;
 }
 .forms-container{
     display: flex;
@@ -73,9 +77,11 @@ body{
     color:#565656;
     border-radius: 32px;
     width:50%;
-    height: 3vh;
+    height: 2.5em;
     margin-bottom: 3vh;
-    padding:1vw;
+    padding-left:1vw;
+    padding-right:1vw;
+    font-size:large;
 }
 .forms-container button{
     background:#880000;
@@ -83,7 +89,47 @@ body{
     color:white;
     border-radius: 32px;
     width:55%;
-    height: 7vh;
-    line-height: 3vh;
+    height: 2.5em;
+    font-size:large;
 }
+@media only screen and (max-device-width: 1000px){
+    .logo-container{
+        flex-direction: column;
+    }
+    .logo-text{
+        font-size: 3em;
+        margin-left: 0;
+        margin-top: 5vh;
+        line-height: 5em;
+        height: 5em;
+        width:85vw;
+        
+    }
+    .logo-svg{
+        height: 16em;
+    }
+    .forms-container{
+        margin-top:4vh;
+        flex-direction: column-reverse;
+        height: auto;
+    }
+    .forms-container div{
+        width:100%;
+    }
+    .sing-up-form{
+        border-right:none;
+        border-top: 1px solid #ffffff80;
+    }
+    .forms-container form{
+        margin-bottom:15em;
+    }
 
+    .forms-container input, .forms-container button{
+        width:80%;
+        font-size: 2.5em;
+        height: 4em;
+    }
+    .forms-container button{
+        width:82%;
+    }
+}
