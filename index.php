@@ -1,3 +1,16 @@
-<?php
+<?
+require_once 'Routing.php';
 
-echo "Hello there! :)";
+$path = trim($_SERVER['REQUEST_URI'], '/');
+$path = parse_url($path, PHP_URL_PATH);
+
+Routing::get('index', 'DefaultController');
+Routing::get('', 'DefaultController');
+Routing::get('home', 'DefaultController');
+Routing::get('search', 'DefaultController');
+Routing::get('ann', 'DefaultController');
+Routing::get('profile', 'DefaultController');
+Routing::run($path)
+
+
+?>

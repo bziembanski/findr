@@ -423,6 +423,226 @@ section.announcements{
     background: #00000080;
     border-radius: 3em;
 }
+
+.ann-filters{
+    display: flex;
+    height: 100%;
+    width:25%;
+    flex-direction: column;
+    align-items: center;
+    justify-items: flex-start;
+    border-right: 1px solid #FFFFFF80;
+    overflow: auto;
+}
+.ann-filter{
+    margin-bottom:3.5em;
+    width:70%;
+    text-align: center;
+}
+.ann-filter:first-of-type{
+    margin-top: 4.5em;
+}
+.ann-search-filter{
+    font-size:2em;
+    color:#636363;
+    margin-bottom: 0.5em;
+}
+.ann-search-information{
+    font-size:2.2em;
+    color:#D4D4D4;
+    margin-left:2.5em;
+}
+.ann-content{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.ann-user-profile-info{
+    margin-top:4.5em;
+    width:85%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+.ann-user-profile-info img{
+    height: 20em;
+    width: 20em;
+}
+.ann-username-date-hour{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-left:5em;
+}
+.ann-username{
+    font-size:3em;
+    color:#D4D4D4;
+}
+.ann-date{
+    border-top:1px solid #636363
+}
+.ann-hour, .ann-date{
+    font-size:2.3em;
+    color:#636363;
+}
+
+.ann-gamename-desc{
+    display: flex;
+    flex-direction: column;
+    width:85%;
+}
+.ann-game-name{
+    font-size:3em;
+    color:#D4D4D4;
+    margin-bottom:1em;
+}
+.ann-desc{
+    color:#909090;
+    font-size:2em;
+}
+.ann-invite-button{
+    width:85%;
+    text-align: left;
+    margin-bottom:10em;
+}
+#invite-button{
+    border:none;
+    background: #880000;
+    color:white;
+    width:40%;
+    height: 2.5em;
+    border-radius: 2em;
+    font-size: 1.8em;
+    outline: none;
+}
+#invite-button:active{
+    padding-top:7px;
+}
+.ann-ratings-section, .profile-ratings-section{
+    display: flex;
+    height: 100%;
+    width:25%;
+    flex-direction: column;
+    align-items: center;
+    justify-items: flex-start;
+    border-left: 1px solid #FFFFFF80;
+    overflow: auto;
+    direction: rtl;
+}
+.profile-ratings-section{
+    border:none;
+}
+.ann-ratings-section-heading, .profile-ratings-section-heading{
+    margin-top:2.75em;
+    width:70%;
+    text-align: left;
+    color: #D4D4D4;
+    font-size: 2.2em;
+    font-weight: bold;
+}
+.ann-ratings-section-heading i, .profile-ratings-section-heading i{
+    margin-left:0.5em;
+}
+.ann-ratings, .profile-ratings{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:2em;
+    margin-left:1.5em;
+}
+.ann-rating, .profile-rating{
+    margin-bottom:1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 4em;
+    color:#d4d4d4;
+}
+.ann-rating img, .profile-rating img{
+    height: 100%;
+}
+.ann-rating .ann-rating-username, .profile-rating .profile-rating-username{
+    font-size:1.5em;
+}
+.ann-rating i, .profile-rating i{
+    font-size:1.5em;
+    color: #3F8850;
+}
+.down i{
+    color: #7D3838;
+}
+.ann-rating-date, .profile-rating-date{
+    font-size:1.2em;
+    color:#636363;
+}
+.ann-ratings-section *, .profile-ratings-section *{
+    direction: ltr;
+}
+
+.profile-main{
+    flex-direction: row;
+    height: 91vh;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+.profile-content{
+    width:75%;
+    height: auto;
+    border-right: 1px solid #ffffff80;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin:auto;
+    margin-left:3em;
+}
+
+.profile-user-profile-info{
+    display: flex;
+    width:50%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top:7em;
+    color:#d4d4d4;
+}
+
+.profile-user-profile-info img{
+    width:20em;
+    height: 20em;
+}
+.profile-username{
+    font-size:2.5em;
+}
+.profile-date, .profile-favourite{
+    margin-top:1em;
+    margin-left: 1em;
+    font-size:1.5em;
+}
+.profile-user-profile-info span{
+    font-weight: bold;
+}
+.profile-anns{
+    margin:auto;
+    margin-top:7em;
+    display: grid;
+    width:100%;
+    grid-gap:1em;
+    grid-template-columns: repeat(4, 23%);
+    grid-auto-rows: 20em;
+    
+}
+
 @media only screen and (max-device-width: 1000px){
     .logo-container{
         flex-direction: column;
