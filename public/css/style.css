@@ -646,9 +646,15 @@ section.announcements{
 .messages{
     height: 2em !important;
     margin-bottom: 2em;
+    color:white;
+    text-align: center;
+    font-size: 1.5em;
 }
 
 @media only screen and (max-device-width: 1000px){
+    .messages{
+        font-size:2.5em;        
+    }
     .logo-container{
         flex-direction: column;
     }
