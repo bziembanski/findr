@@ -10,6 +10,9 @@ Routing::get('home', 'DefaultController');
 Routing::get('search', 'DefaultController');
 Routing::get('ann', 'DefaultController');
 Routing::get('profile', 'DefaultController');
+
+Routing::post('login', 'SecurityController');
+
 Routing::run($path)
 
 

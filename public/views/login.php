@@ -25,7 +25,16 @@
             </div>
             
             <div class="log-in-form">
-                <form>
+                <form action="login" method="POST">
+                <div class="messages">
+                        <?php 
+                            if (isset($messages)){
+                                foreach($messages as $message){
+                                    echo $message;
+                                }
+                            }
+                        ?>
+                    </div>
                     <input name="username-email" type="text" placeholder="email or username">
                     <input name="password" type="password" placeholder="password">
                     <button>log in</button>
