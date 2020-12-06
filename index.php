@@ -13,7 +13,4 @@ Routing::get('profile', 'DefaultController');
 
 Routing::post('login', 'SecurityController');
 
-Routing::run($path)
-
-
-?>
+Routing::run($path);

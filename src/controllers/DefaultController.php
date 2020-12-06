@@ -23,5 +23,3 @@ class DefaultController extends AppController{
         $this->render("profile");
     }
 }
-
-?>
