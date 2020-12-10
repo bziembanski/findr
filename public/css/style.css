@@ -47,8 +47,12 @@ nav header {
 .profile-nav, .nav-logout{
     font-size: 2em;
 }
-.profile-nav img{
+.profile-nav a{
     height: 80% !important;
+    margin-right: 0.5em;
+}
+.profile-nav a img{
+    height: 100%;
     margin-right: 0.5em;
 }
 .profile-header{
@@ -117,8 +121,7 @@ main.home-main{
     text-align:center;
 }
 .home-main .search-bar button{
-    padding:0;
-    padding-top:0.45em;
+    padding: 0.45em 0 0;
     width:2.5em;
     font-size: 2.5em;
 }
@@ -174,7 +177,6 @@ section.search-filters{
     flex-direction: row-reverse;
     align-items: center;
     justify-content: flex-end;
-    justify-items: space-between;
     margin-bottom: 2em;
     width: 90%;
     height: 2.5em;
@@ -200,12 +202,11 @@ section.search-filters{
     outline:none;
 }
 .search-bar button{
-    padding:0.5em;
     width: 10%;
     border:none;
     background: none;
     color: #909090;
-    padding-right: 1.5em;
+    padding: 0.5em 1.5em 0.5em 0.5em;
     border-right: 1px solid #909090;
 }
 
@@ -322,15 +323,13 @@ section.announcements{
 }
 
 .login{
-    background: transparent linear-gradient(180deg, #880000 0%, #000000 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(180deg, #880000 0%, #000000 100%) 0 0 no-repeat padding-box;
     overflow:auto;
 }
 .logo-container{
     display: flex;
     flex-direction: row;
-    margin: 0 auto;
-    margin-top:5vh;
-    margin-bottom:5vh;
+    margin: 5vh auto;
     width:85%;
     align-items: center;
     justify-content: center;
@@ -363,7 +362,7 @@ section.announcements{
     width:85%;
     height: 60vh;
     align-items: center;
-    background: transparent linear-gradient(180deg, #00000047 0%, #16161647 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(180deg, #00000047 0%, #16161647 100%) 0 0 no-repeat padding-box;
     border-radius: 30px;
     margin:auto;
 
@@ -586,7 +585,29 @@ section.announcements{
 .ann-ratings-section *, .profile-ratings-section *{
     direction: ltr;
 }
-
+.edit-profile-main{
+    flex-direction: row;
+    height: 91vh;
+    align-items: center;
+    justify-content: space-between;
+    overflow-y: auto;
+    color: #d4d4d4;
+    width:40%;
+    margin:auto;
+}
+.edit-profile-inputs{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    margin-left: 1em;
+    font-size: 1.5em;
+    width: 20em;
+}
+.edit-profile-username, .edit-profile-favourite, .edit-profile-avatar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .profile-main{
     flex-direction: row;
     height: 91vh;
@@ -603,8 +624,7 @@ section.announcements{
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    margin:auto;
-    margin-left:3em;
+    margin: auto auto auto 3em;
 }
 
 .profile-user-profile-info{
@@ -624,17 +644,23 @@ section.announcements{
 .profile-username{
     font-size:2.5em;
 }
-.profile-date, .profile-favourite{
+.profile-date, .profile-favourite, .profile-edit-link{
     margin-top:1em;
     margin-left: 1em;
     font-size:1.5em;
+}
+.profile-edit-link{
+    display: block;
+    color:#d4d4d4;
+}
+.profile-edit-link:hover{
+    color:white;
 }
 .profile-user-profile-info span{
     font-weight: bold;
 }
 .profile-anns{
-    margin:auto;
-    margin-top:7em;
+    margin: 7em auto auto;
     display: grid;
     width:100%;
     grid-gap:1em;

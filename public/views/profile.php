@@ -21,7 +21,7 @@
                 <div class="profile-header">
                     <i class="fas fa-bell"></i>
                     <div class="profile-nav">
-                        <img src="public/img/avatar.png">
+                        <a href="/profile"><img src="public/img/avatar.png"></a>
                         <div class="profile-nav-username">username</div>
                     </div>
                     <div class="nav-logout">logout</div>
@@ -37,6 +37,7 @@
                         <div class="profile-username">Username</div>
                         <div class="profile-date"><span>Joined:</span>2020-12-24</div>
                         <div class="profile-favourite"><span>Favourite game:</span>Baldur's Gate 3</div>
+                        <a class="profile-edit-link" href="/edit_profile"><i class="far fa-edit" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div class="profile-anns">

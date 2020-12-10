@@ -22,4 +22,7 @@ class DefaultController extends AppController{
     public function profile(){
         $this->render("profile");
     }
+    public function edit_profile(){
+        $this->render("edit_profile");
+    }
 }
