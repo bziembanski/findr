@@ -12,6 +12,7 @@ Routing::get('ann', 'DefaultController');
 Routing::get('profile', 'DefaultController');
 Routing::get('edit_profile', 'DefaultController');
 Routing::post('login', 'SecurityController');
+Routing::post('register', 'SecurityController');
 Routing::post('editProfile', 'EditProfileController');
 
 Routing::run($path);

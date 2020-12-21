@@ -15,7 +15,16 @@
         </div>
         <div class="forms-container">
             <div class="sing-up-form">
-                <form>
+                <form action="register" method="POST">
+                    <div class="messages">
+                        <?php
+                        if (isset($register_messages)){
+                            foreach($register_messages as $message){
+                                echo $message;
+                            }
+                        }
+                        ?>
+                    </div>
                     <input name="username" type="text" placeholder="username">
                     <input name="email" type="text" placeholder="email">
                     <input name="password" type="password" placeholder="password">
@@ -28,8 +37,8 @@
                 <form action="login" method="POST">
                     <div class="messages">
                         <?php 
-                            if (isset($messages)){
-                                foreach($messages as $message){
+                            if (isset($login_messages)){
+                                foreach($login_messages as $message){
                                     echo $message;
                                 }
                             }
