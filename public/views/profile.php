@@ -13,9 +13,9 @@
                 <div class="logo-nav-header">
                     <img id="logo-header" src="public/img/logo.svg">
                     <ul>
-                        <li><a href="">home</a></li>
-                        <li><a href="">search</a></li>
-                        <li class="active"><a href="">profile</a></li>
+                        <li><a href="/home">home</a></li>
+                        <li><a href="/search">search</a></li>
+                        <li class="active"><a href="/profile">profile</a></li>
                     </ul>
                 </div>
                 <div class="profile-header">
@@ -32,11 +32,11 @@
         <main class="profile-main">
             <section class="profile-content">
                 <div class="profile-user-profile-info">
-                    <img src="public/img/avatar.png">
+                    <img src="public/upload/<?= $user->getAvatar()?>">
                     <div class="profile-username-date-hour">
-                        <div class="profile-username">Username</div>
-                        <div class="profile-date"><span>Joined:</span>2020-12-24</div>
-                        <div class="profile-favourite"><span>Favourite game:</span>Baldur's Gate 3</div>
+                        <div class="profile-username"><?= $user->getUsername()?></div>
+                        <div class="profile-date"><span>Joined:</span><?= $user->getJoined()?></div>
+                        <div class="profile-favourite"><span>Favourite game:</span><?= $user->getFavouriteGame()?></div>
                         <a class="profile-edit-link" href="/edit_profile"><i class="far fa-edit" aria-hidden="true"></i></a>
                     </div>
                 </div>

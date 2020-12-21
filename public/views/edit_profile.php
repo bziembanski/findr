@@ -31,11 +31,21 @@
     </nav>
     <main class="edit-profile-main">
             <img src="public/img/avatar.png">
-            <div class="edit-profile-inputs">
+            <form action="editProfile" enctype="multipart/form-data" method="POST" class="edit-profile-inputs">
+                <div class="messages">
+                    <?php
+                    if (isset($messages)){
+                        foreach($messages as $message){
+                            echo $message;
+                        }
+                    }
+                    ?>
+                </div>
                 <label class="edit-profile-username">Username<input type="text" placeholder="Username" name="username"></label>
                 <label class="edit-profile-favourite">Favourite game<input type="text" placeholder="Favourite game" name="favourite_game"></label>
-                <label class="edit-profile-avatar">Avatar<input type="file" accept="image/jpeg" name="avatar"></label>
-            </div>
+                <label class="edit-profile-avatar">Avatar<input type="file" accept="image/jpeg, image/png" name="avatar"></label>
+                <button>Save</button>
+            </form>
     </main>
 </div>
 </body>
