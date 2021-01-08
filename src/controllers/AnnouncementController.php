@@ -3,8 +3,8 @@ require_once __DIR__.'/../repository/AnnouncementRepository.php';
 
 class AnnouncementController extends AppController
 {
-    private $messages = [];
-    private $annRepository;
+    private array $messages = [];
+    private AnnouncementRepository $annRepository;
 
     public function __construct()
     {
@@ -13,16 +13,23 @@ class AnnouncementController extends AppController
     }
 
     public function search(){
-        $this->render("search");
+        $anns = $this->annRepository->getAnns();
+        $this->render("search", ['anns' => $anns]);
     }
 
     public function addAnn(){
         if ($this->isPost()){
-            $ann = new Annoucement($_POST['username'], "", $_POST['gameName'], $_POST['desc']);
-            $this->annRepository->addAnn($ann);
-            return $this->render("search", ["messages" => $this->messages]);
+            $user_id = 14;
+            $username = "admin";
+            $ann = new Annoucement($username, "", "", $_POST['gameName'], $_POST['desc']);
+            $this->annRepository->addAnn($ann, $user_id);
+            return $this->render("search", [
+                "messages" => $this->messages,
+                "anns" => $this->annRepository->getAnns()
+                ]);
         }
-        $this->render("addAnn", ["messages" => $this->messages]);
+        $this->render("add_ann", ["messages" => $this->messages]);
     }
+
 
 }

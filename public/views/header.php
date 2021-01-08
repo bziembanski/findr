@@ -2,9 +2,9 @@
     <div class="logo-nav-header">
         <img id="logo-header" src="public/img/logo.svg">
         <ul>
-            <li><a href="">home</a></li>
-            <li><a href="">search</a></li>
-            <li><a href="">profile</a></li>
+            <li><a href="/home">home</a></li>
+            <li><a href="/search">search</a></li>
+            <li><a href="/profile">profile</a></li>
         </ul>
     </div>
     <div class="profile-header">

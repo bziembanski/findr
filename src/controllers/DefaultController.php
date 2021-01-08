@@ -13,8 +13,8 @@ class DefaultController extends AppController{
         $this->render("home");
     }
 
-    public function search(){
-        $this->render("search");
+    public function add_ann(){
+        $this->render("add_ann");
     }
 
     public function ann(){

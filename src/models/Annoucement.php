@@ -4,16 +4,31 @@
 class Annoucement
 {
     private string $username;
+    private string $avatar;
     private string $date;
+    private string $time;
     private string $gameName;
     private string $description;
 
-    public function __construct(string $username, string $date, string $gameName, string $description)
+    public function __construct(string $username, string $avatar, string $date, string $gameName, string $description)
     {
+        $date_array = explode(" ", $date);
         $this->username = $username;
-        $this->date = $date;
+        $this->avatar = $avatar;
+        $this->date = $date_array[0];
+        $this->time = explode(".", $date_array[1])[0];
         $this->gameName = $gameName;
         $this->description = $description;
+    }
+
+    public function getAvatar(): string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(string $avatar): void
+    {
+        $this->avatar = $avatar;
     }
 
     public function getUsername(): string
@@ -34,6 +49,16 @@ class Annoucement
     public function setDate(string $date): void
     {
         $this->date = $date;
+    }
+
+    public function getTime(): string
+    {
+        return $this->time;
+    }
+
+    public function setTime(string $time): void
+    {
+        $this->time = $time;
     }
 
     public function getGameName(): string

@@ -1,11 +1,11 @@
 <?
-
 require_once 'src/controllers/DefaultController.php';
 require_once 'src/controllers/SecurityController.php';
 require_once 'src/controllers/EditProfileController.php';
+require_once 'src/controllers/AnnouncementController.php';
 
 class Routing{
-    public static $routes;
+    public static array $routes;
 
     public static function get($url, $controller){
         self::$routes[$url] = $controller;
