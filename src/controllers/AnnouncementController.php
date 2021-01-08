@@ -23,10 +23,8 @@ class AnnouncementController extends AppController
             $username = "admin";
             $ann = new Annoucement($username, "", "", $_POST['gameName'], $_POST['desc']);
             $this->annRepository->addAnn($ann, $user_id);
-            return $this->render("search", [
-                "messages" => $this->messages,
-                "anns" => $this->annRepository->getAnns()
-                ]);
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/search");
         }
         $this->render("add_ann", ["messages" => $this->messages]);
     }
