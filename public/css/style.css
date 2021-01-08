@@ -322,7 +322,10 @@ section.announcements{
     font-size: 1.3em;
     color:#909090;
 }
-
+.no-valid{
+    box-shadow: 0 0 1em lightcoral;
+    outline: none;
+}
 .login{
     background: transparent linear-gradient(180deg, #880000 0%, #000000 100%) 0 0 no-repeat padding-box;
     overflow:auto;

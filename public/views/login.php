@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/reset.css">
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <script type="text/javascript" src="./public/js/script.js" defer></script>
     <title>LOGIN PAGE</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
         </div>
         <div class="forms-container">
             <div class="sing-up-form">
-                <form action="register" method="POST">
+                <form id="sign-up-form" action="register" method="POST">
                     <div class="messages">
                         <?php
                         if (isset($register_messages)){
@@ -34,7 +35,7 @@
             </div>
             
             <div class="log-in-form">
-                <form action="login" method="POST">
+                <form id="log-in-form" action="login" method="POST">
                     <div class="messages">
                         <?php 
                             if (isset($login_messages)){
