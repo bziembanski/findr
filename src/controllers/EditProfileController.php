@@ -23,7 +23,7 @@ class EditProfileController extends AppController{
                 $_FILES['avatar']['tmp_name'],
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['avatar']['name']
             );
-            $userProfile = $this->userRepository->getProfile('bariziem@gmail.com'); //new UserProfile("bariziem@gamail.com", $_POST['username'], "data", $_POST['favourite_game'], $_FILES['avatar']['name']);
+            $userProfile = $this->userRepository->getProfile('admin@admin'); //new UserProfile("bariziem@gamail.com", $_POST['username'], "data", $_POST['favourite_game'], $_FILES['avatar']['name']);
             return $this->render("profile", ['messages' => $this->messages, 'user' => $userProfile]);
         }
 

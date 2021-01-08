@@ -26,7 +26,7 @@ class AnnouncementRepository extends Repository
         );
     }
 
-    public function addAnnouncement(Annoucement $annoucement){
+    public function addAnn(Annoucement $annoucement){
         $statement = $this->database->connect()->prepare("
             INSERT INTO public.announcements (user_id, game_name, description)
             VALUES (? ? ?)
