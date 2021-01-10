@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="public/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <script src="https://kit.fontawesome.com/09f69f3f15.js" crossorigin="anonymous"></script>
     <title>ADD ANNOUNCEMENT PAGE</title>
 </head>
@@ -12,7 +12,7 @@
         <?php include("header.php")?>
     </nav>
     <main class="add-ann-main">
-        <form action="addAnn" method="POST" class="add-ann-inputs">
+        <form action="/addAnn" method="POST" class="add-ann-inputs">
             <h1>Add Announcement</h1>
             <div class="messages">
                 <?php

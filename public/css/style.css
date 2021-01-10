@@ -476,6 +476,7 @@ section.announcements{
 .ann-user-profile-info img{
     height: 20em;
     width: 20em;
+    border-radius: 2em;
 }
 .ann-username-date-hour{
     display: flex;
@@ -580,7 +581,7 @@ section.announcements{
     font-size:1.5em;
     color: #3F8850;
 }
-.down i{
+.ann-rating i.fa-thumbs-down{
     color: #7D3838;
 }
 .ann-rating-date, .profile-rating-date{

@@ -27,7 +27,7 @@ class EditProfileController extends AppController{
             return $this->render("profile", ['messages' => $this->messages, 'user' => $userProfile]);
         }
 
-        $this->render("edit_profile", ['messages' => $this->messages]);
+        return $this->render("edit_profile", ['messages' => $this->messages]);
     }
 
     private function validate(array $file): bool{

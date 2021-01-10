@@ -8,7 +8,7 @@ class AnnouncementRepository extends Repository
 
     public function getAnn(int $id): ?Annoucement{
         $statement = $this->database->connect()->prepare("
-            SELECT ann_id, username, date, game_name, description, avatar FROM public.announcements JOIN users u on u.user_id = announcements.user_id JOIN profiles p on p.profile_id = u.profile_id WHERE ann_id = :id;
+            SELECT ann_id, username, date, game_name, description, avatar, u.user_id FROM public.announcements JOIN users u on u.user_id = announcements.user_id JOIN profiles p on p.profile_id = u.profile_id WHERE ann_id = :id;
         ");
         $statement->bindParam(':id', $id, PDO::PARAM_STR);
         $state = $statement->execute();
@@ -20,7 +20,8 @@ class AnnouncementRepository extends Repository
             $announcement['date'],
             $announcement['game_name'],
             $announcement['description'],
-            $announcement['ann_id']
+            $announcement['ann_id'],
+            $announcement['user_id']
         );
     }
 
@@ -38,7 +39,7 @@ class AnnouncementRepository extends Repository
 
     public function getAnns(): array{
         $stmt = $this->database->connect()->prepare('
-            SELECT ann_id, game_name, description, date, username, avatar FROM announcements JOIN users u on u.user_id = announcements.user_id JOIN profiles p on p.profile_id = u.profile_id;
+            SELECT ann_id, game_name, description, date, username, avatar, u.user_id FROM announcements JOIN users u on u.user_id = announcements.user_id JOIN profiles p on p.profile_id = u.profile_id;
         ');
         $stmt->execute();
         $anns = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -49,7 +50,7 @@ class AnnouncementRepository extends Repository
     {
         $searchString = '%'.strtolower($searchString).'%';
         $stmt= $this->database->connect()->prepare('
-            SELECT ann_id, game_name, description, date, username, avatar FROM announcements JOIN users u on u.user_id = announcements.user_id JOIN profiles p on p.profile_id = u.profile_id WHERE LOWER(game_name) LIKE :search OR LOWER(description) LIKE :search;
+            SELECT ann_id, game_name, description, date, username, avatar, u.user_id FROM announcements JOIN users u on u.user_id = announcements.user_id JOIN profiles p on p.profile_id = u.profile_id WHERE LOWER(game_name) LIKE :search OR LOWER(description) LIKE :search;
         ');
         $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
         $stmt->execute();
@@ -66,7 +67,8 @@ class AnnouncementRepository extends Repository
                 $ann['date'],
                 $ann['game_name'],
                 $ann['description'],
-                $ann['ann_id']
+                $ann['ann_id'],
+                $ann['user_id']
             );
         }
         return $result;

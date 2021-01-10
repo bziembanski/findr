@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="public/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <script src="https://kit.fontawesome.com/09f69f3f15.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./public/js/search.js" defer></script>
+    <script type="text/javascript" src="/public/js/search.js" defer></script>
     <title>SEARCH PAGE</title>
 </head>
 <body>
@@ -156,7 +156,7 @@
             <section class="announcements">
                 <?php foreach ($anns as $ann): ?>
                 <a href="/ann/<?= $ann->getId() ?>" class="announcement">
-                    <img src="public/upload/<?= $ann->getAvatar() ?>">
+                    <img src="/public/upload/<?= $ann->getAvatar() ?>">
                     <div class="announcement-username-date">
                         <p class="announcement-username"><?= $ann->getUsername() ?></p>
                         <p class="announcement-date"><?= $ann->getDate() ?></p>

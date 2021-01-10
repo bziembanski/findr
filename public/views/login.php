@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="public/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <script type="text/javascript" src="./public/js/script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="/public/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+    <script type="text/javascript" src="/public/js/script.js" defer></script>
     <title>LOGIN PAGE</title>
 </head>
 <body>
     <div class="container login">
         <div class="logo-container">
             <div class="logo-svg">
-                <img src="public/img/logo.svg">
+                <img src="/public/img/logo.svg">
             </div>
             <div class="logo-text">find new gamer friends</div>
         </div>
         <div class="forms-container">
             <div class="sing-up-form">
-                <form id="sign-up-form" action="register" method="POST">
+                <form id="sign-up-form" action="/register" method="POST">
                     <div class="messages">
                         <?php
                         if (isset($register_messages)){

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="public/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <script src="https://kit.fontawesome.com/09f69f3f15.js" crossorigin="anonymous"></script>
     <title>EDIT PROFILE</title>
 </head>
@@ -12,8 +12,8 @@
         <?php include("header.php")?>
     </nav>
     <main class="edit-profile-main">
-            <img src="public/img/avatar.png">
-            <form action="editProfile" enctype="multipart/form-data" method="POST" class="edit-profile-inputs">
+            <img src="/public/img/avatar.png">
+            <form action="/editProfile" enctype="multipart/form-data" method="POST" class="edit-profile-inputs">
                 <div class="messages">
                     <?php
                     if (isset($messages)){

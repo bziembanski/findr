@@ -10,8 +10,9 @@ class Annoucement
     private string $gameName;
     private string $description;
     private int $id;
+    private int $userId;
 
-    public function __construct(string $username, string $avatar, string $date, string $gameName, string $description, int $id)
+    public function __construct(string $username, string $avatar, string $date, string $gameName, string $description, int $id, int $userId)
     {
         $date_array = explode(" ", $date);
         $this->username = $username;
@@ -21,6 +22,7 @@ class Annoucement
         $this->gameName = $gameName;
         $this->description = $description;
         $this->id = $id;
+        $this->userId = $userId;
     }
 
     public function getAvatar(): string
@@ -88,8 +90,18 @@ class Annoucement
         return $this->id;
     }
 
-    public function setid(int $id): void
+    public function setId(int $id): void
     {
         $this->id = $id;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(int $userId): void
+    {
+        $this->userId = $userId;
     }
 }
