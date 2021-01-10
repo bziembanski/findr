@@ -8,34 +8,25 @@ class AnnouncementRepository extends Repository
 
     public function getAnn(int $id): ?Annoucement{
         $statement = $this->database->connect()->prepare("
-            SELECT username, date, game_name, description FROM public.announcements JOIN users u on u.user_id = announcements.user_id JOIN profiles p on p.profile_id = u.profile_id WHERE ann_id = :id;
+            SELECT ann_id, username, date, game_name, description, avatar FROM public.announcements JOIN users u on u.user_id = announcements.user_id JOIN profiles p on p.profile_id = u.profile_id WHERE ann_id = :id;
         ");
         $statement->bindParam(':id', $id, PDO::PARAM_STR);
-        $statement->execute();
-
+        $state = $statement->execute();
         $announcement= $statement->fetch(PDO::FETCH_ASSOC);
-
-        if($announcement == false){
-            return null;
-        }
-        $stmt = $this->database->connect()->prepare('
-                SELECT username, avatar FROM users JOIN profiles p on p.profile_id = users.profile_id WHERE users.user_id=:user_id;
-            ');
-        $stmt->bindParam(':user_id', $announcement['user_id'], PDO::PARAM_STR);
-        $stmt->execute();
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        if(!$announcement) return null;
         return new Annoucement(
-            $user['username'],
-            $user['avatar'],
+            $announcement['username'],
+            $announcement['avatar'],
             $announcement['date'],
             $announcement['game_name'],
-            $announcement['description']
+            $announcement['description'],
+            $announcement['ann_id']
         );
     }
 
     public function addAnn(Annoucement $annoucement, int $user_id){
         $statement = $this->database->connect()->prepare("
-            INSERT INTO public.announcements (user_id, game_name, description)
+            INSERT INTO announcements (user_id, game_name, description)
             VALUES (?, ?, ?)
         ");
         $statement->execute([
@@ -46,26 +37,36 @@ class AnnouncementRepository extends Repository
     }
 
     public function getAnns(): array{
-        $result = [];
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM announcements
+            SELECT ann_id, game_name, description, date, username, avatar FROM announcements JOIN users u on u.user_id = announcements.user_id JOIN profiles p on p.profile_id = u.profile_id;
         ');
         $stmt->execute();
         $anns = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $this->getAnnouncementsArray($anns);
+    }
 
+    public function getAnnsByGameNameOrDesc(string $searchString): array
+    {
+        $searchString = '%'.strtolower($searchString).'%';
+        $stmt= $this->database->connect()->prepare('
+            SELECT ann_id, game_name, description, date, username, avatar FROM announcements JOIN users u on u.user_id = announcements.user_id JOIN profiles p on p.profile_id = u.profile_id WHERE LOWER(game_name) LIKE :search OR LOWER(description) LIKE :search;
+        ');
+        $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    private function getAnnouncementsArray(array $anns): array
+    {
+        $result = [];
         foreach($anns as $ann){
-            $stmt = $this->database->connect()->prepare('
-                SELECT username, avatar FROM users JOIN profiles p on p.profile_id = users.profile_id WHERE users.user_id=:user_id;
-            ');
-            $stmt->bindParam(':user_id', $ann['user_id'], PDO::PARAM_STR);
-            $stmt->execute();
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
             $result[] = new Annoucement(
-                $user['username'],
-                $user['avatar'],
+                $ann['username'],
+                $ann['avatar'],
                 $ann['date'],
                 $ann['game_name'],
-                $ann['description']
+                $ann['description'],
+                $ann['ann_id']
             );
         }
         return $result;

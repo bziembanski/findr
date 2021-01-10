@@ -298,6 +298,7 @@ section.announcements{
     text-align: center;
     justify-content: space-around;
     align-self: stretch;
+    text-decoration: none;
 }
 .announcement img{
     height: 9em;

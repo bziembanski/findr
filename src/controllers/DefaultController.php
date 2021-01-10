@@ -13,20 +13,9 @@ class DefaultController extends AppController{
         $this->render("home");
     }
 
-    public function add_ann(){
-        $this->render("add_ann");
-    }
-
-    public function ann(){
-        $this->render("ann");
-    }
-
     public function profile(){
         $userRepository = new UserRepository();
         $userProfile = $userRepository->getProfile('bariziem@gmail.com');
         $this->render("profile", ['user'=>$userProfile]);
-    }
-    public function edit_profile(){
-        $this->render("edit_profile");
     }
 }
