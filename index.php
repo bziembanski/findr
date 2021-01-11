@@ -10,9 +10,10 @@ Routing::get('search', 'AnnouncementController');
 Routing::get('searchAction', 'AnnouncementController');
 Routing::get('addAnn', 'AnnouncementController');
 Routing::get('ann', 'AnnouncementController');
-Routing::get('profile', 'DefaultController');
+Routing::get('profile', 'ProfileController');
 Routing::post('login', 'SecurityController');
 Routing::post('register', 'SecurityController');
+Routing::post('logout', 'SecurityController');
 Routing::post('editProfile', 'EditProfileController');
 
 Routing::run($path);

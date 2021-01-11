@@ -56,8 +56,7 @@ nav header {
     margin-right: 0.5em;
 }
 .profile-header{
-    
-    color: #D2D2D2
+    color: #D2D2D2;
 }
 .profile-header > *{
     margin-right: 1em;
@@ -83,10 +82,12 @@ nav header {
     height: 100%;
 }
 
-.logo-nav-header li.active a{
-    text-decoration: underline;
+.profile-header a{
+    color: #D2D2D2;
+    text-decoration: none;
 }
-.logo-nav-header li a:hover{
+
+.logo-nav-header li a:hover, .profile-header a:hover{
     text-decoration: underline;
 }
 main{
@@ -553,7 +554,7 @@ section.announcements{
 .ann-ratings-section-heading i, .profile-ratings-section-heading i{
     margin-left:0.5em;
 }
-.ann-ratings, .profile-ratings{
+.ratings{
     width: 70%;
     display: flex;
     flex-direction: column;
@@ -572,7 +573,9 @@ section.announcements{
     color:#d4d4d4;
 }
 .ann-rating img, .profile-rating img{
-    height: 100%;
+    width: 4em;
+    height: 4em;
+    border-radius: 0.5em;
 }
 .ann-rating .ann-rating-username, .profile-rating .profile-rating-username{
     font-size:1.5em;
@@ -641,11 +644,13 @@ section.announcements{
     justify-content: space-around;
     margin-top:7em;
     color:#d4d4d4;
+
 }
 
 .profile-user-profile-info img{
     width:20em;
     height: 20em;
+    border-radius: 2em;
 }
 .profile-username{
     font-size:2.5em;

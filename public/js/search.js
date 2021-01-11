@@ -1,25 +1,33 @@
-const search = document.querySelector('input[name="search"]');
+const searchInput = document.querySelector('input[name="search"]');
 const annsContainer = document.querySelector(".announcements")
-//addOnClickListener()
+const searchButton = document.querySelector('#search-button');
 
-search.addEventListener("keyup", function (event){
+function searchAction(){
+    const data = {search: searchInput.value};
+    fetch("/searchAction", {
+        method: "POST",
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(function (response) {
+        return response.json();
+    }).then(function (anns){
+        annsContainer.innerHTML="";
+        loadAnns(anns)
+    });
+}
+searchInput.addEventListener("keyup", function (event){
     if(event.key === "Enter"){
         event.preventDefault()
-        const data = {search: this.value};
-        fetch("/searchAction", {
-            method: "POST",
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then(function (response) {
-            return response.json();
-        }).then(function (anns){
-            annsContainer.innerHTML="";
-            loadAnns(anns)
-        });
+        searchAction();
     }
 });
+
+searchButton.addEventListener("click", function () {
+    console.log("click");
+    searchAction();
+})
 
 function loadAnns(anns) {
     anns.forEach(ann=>{
@@ -50,14 +58,4 @@ function createAnn(ann){
     announcementDiv.id = ann.ann_id;
 
     annsContainer.appendChild(clone);
-}
-
-function addOnClickListener(){
-    const announcements = document.querySelectorAll(".announcement");
-    announcements.forEach(ann=>{
-        ann.addEventListener("click", function (event) {
-            window.location = `/ann/${ann.id}`;
-        })
-    })
-
 }

@@ -27,4 +27,11 @@
             }
             print $output;
         }
+
+        protected function userCookieVerification(){
+            if(!isset($_COOKIE["user"])){
+                $url = "http://$_SERVER[HTTP_HOST]";
+                header("Location: {$url}/");
+            }
+        }
     }

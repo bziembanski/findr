@@ -13,7 +13,7 @@
             <a href="/profile"><img src="/public/img/avatar.png"></a>
             <div class="profile-nav-username">username</div>
         </div>
-        <div class="nav-logout">logout</div>
+        <a href="/logout" class="nav-logout">logout</a>
     </div>
 
 </header>

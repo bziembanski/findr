@@ -14,11 +14,11 @@
         <main class="profile-main">
             <section class="profile-content">
                 <div class="profile-user-profile-info">
-                    <img src="/public/upload/<?= $user->getAvatar()?>">
+                    <img src="/public/upload/<?= $profile->getAvatar()?>">
                     <div class="profile-username-date-hour">
-                        <div class="profile-username"><?= $user->getUsername()?></div>
-                        <div class="profile-date"><span>Joined:</span><?= $user->getJoined()?></div>
-                        <div class="profile-favourite"><span>Favourite game:</span><?= $user->getFavouriteGame()?></div>
+                        <div class="profile-username"><?= $profile->getUsername()?></div>
+                        <div class="profile-date"><span>Joined:</span><?= $profile->getJoined()?></div>
+                        <div class="profile-favourite"><span>Favourite game:</span><?= $profile->getFavouriteGame()?></div>
                         <a class="profile-edit-link" href="/editProfile"><i class="far fa-edit" aria-hidden="true"></i></a>
                     </div>
                 </div>
@@ -137,73 +137,15 @@
             </section>
             <section class="profile-ratings-section">
                 <div class="profile-ratings-section-heading">Rating <i class="far fa-thumbs-up"></i> <i class="far fa-thumbs-down"></i></div>
-                <div class="profile-ratings">
-                    <div class="profile-rating">
-                        <img src="/public/img/avatar.png">
-                        <p class="profile-rating-username">username</p>
-                        <i class="far fa-thumbs-up"></i>
-                        <p class="profile-rating-date">2020-12-24</p>
-                    </div>
-                    <div class="profile-rating">
-                        <img src="public/img/avatar.png">
-                        <p class="profile-rating-username">username</p>
-                        <i class="far fa-thumbs-up"></i>
-                        <p class="profile-rating-date">2020-12-24</p>
-                    </div>
-                    <div class="profile-rating">
-                        <img src="public/img/avatar.png">
-                        <p class="profile-rating-username">username</p>
-                        <i class="far fa-thumbs-up"></i>
-                        <p class="profile-rating-date">2020-12-24</p>
-                    </div>
-                    <div class="profile-rating">
-                        <img src="public/img/avatar.png">
-                        <p class="profile-rating-username">username</p>
-                        <i class="far fa-thumbs-up"></i>
-                        <p class="profile-rating-date">2020-12-24</p>
-                    </div>
-                    <div class="profile-rating down">
-                        <img src="public/img/avatar.png">
-                        <p class="profile-rating-username">username</p>
-                        <i class="far fa-thumbs-down"></i>
-                        <p class="profile-rating-date">2020-12-24</p>
-                    </div>
-                    <div class="profile-rating">
-                        <img src="public/img/avatar.png">
-                        <p class="profile-rating-username">username</p>
-                        <i class="far fa-thumbs-up"></i>
-                        <p class="profile-rating-date">2020-12-24</p>
-                    </div>
-                    <div class="profile-rating">
-                        <img src="public/img/avatar.png">
-                        <p class="profile-rating-username">username</p>
-                        <i class="far fa-thumbs-up"></i>
-                        <p class="profile-rating-date">2020-12-24</p>
-                    </div>
-                    <div class="profile-rating">
-                        <img src="public/img/avatar.png">
-                        <p class="profile-rating-username">username</p>
-                        <i class="far fa-thumbs-up"></i>
-                        <p class="profile-rating-date">2020-12-24</p>
-                    </div>
-                    <div class="profile-rating">
-                        <img src="public/img/avatar.png">
-                        <p class="profile-rating-username">username</p>
-                        <i class="far fa-thumbs-up"></i>
-                        <p class="profile-rating-date">2020-12-24</p>
-                    </div>
-                    <div class="profile-rating">
-                        <img src="public/img/avatar.png">
-                        <p class="profile-rating-username">username</p>
-                        <i class="far fa-thumbs-up"></i>
-                        <p class="profile-rating-date">2020-12-24</p>
-                    </div>
-                    <div class="profile-rating">
-                        <img src="public/img/avatar.png">
-                        <p class="profile-rating-username">username</p>
-                        <i class="far fa-thumbs-up"></i>
-                        <p class="profile-rating-date">2020-12-24</p>
-                    </div>
+                <div class="ratings">
+                    <? foreach ($ratings as $rating): ?>
+                        <div class="ann-rating">
+                            <img src="/public/upload/<?=$rating->getAvatar()?>">
+                            <p class="ann-rating-username"><?=$rating->getUsername()?></p>
+                            <i class="far fa-thumbs-<?=$rating->isRatingType() ? 'up': 'down'?>"></i>
+                            <p class="ann-rating-date"><?=explode(" ", $rating->getDate(),)[0]?></p>
+                        </div>
+                    <? endforeach;?>
                 </div>
             </section>
             

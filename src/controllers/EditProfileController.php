@@ -18,13 +18,16 @@ class EditProfileController extends AppController{
     }
 
     public function editProfile(){
+        $this->userCookieVerification();
         if($this->isPost() && is_uploaded_file($_FILES['avatar']['tmp_name']) && $this->validate($_FILES['avatar'])){
             move_uploaded_file(
                 $_FILES['avatar']['tmp_name'],
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['avatar']['name']
             );
-            $userProfile = $this->userRepository->getProfile('admin@admin'); //new UserProfile("bariziem@gamail.com", $_POST['username'], "data", $_POST['favourite_game'], $_FILES['avatar']['name']);
-            return $this->render("profile", ['messages' => $this->messages, 'user' => $userProfile]);
+            $id = intval($_COOKIE["user"]);
+            $this->userRepository->editProfile($id, $_POST['username'], $_POST['favourite_game'], $_FILES['avatar']['name']);
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/profile");
         }
 
         return $this->render("edit_profile", ['messages' => $this->messages]);

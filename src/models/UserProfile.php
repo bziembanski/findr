@@ -11,7 +11,7 @@ class UserProfile{
     public function __construct($email, $username, $joined, $favouriteGame, $avatar)
     {
         $this->email = $email;
-        $this->joined = $joined;
+        $this->joined = explode(".",$joined)[0];
         $this->favouriteGame = $favouriteGame;
         $this->avatar = $avatar;
         $this->username = $username;

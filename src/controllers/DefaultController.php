@@ -6,16 +6,18 @@ require_once __DIR__.'/../repository/UserRepository.php';
 
 class DefaultController extends AppController{
     public function index(){
+        if(isset($_COOKIE["user"])){
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/home");
+        }
+
         $this->render("login");
     }
   
     public function home(){
+        $this->userCookieVerification();
         $this->render("home");
     }
 
-    public function profile(){
-        $userRepository = new UserRepository();
-        $userProfile = $userRepository->getProfile('bariziem@gmail.com');
-        $this->render("profile", ['user'=>$userProfile]);
-    }
+
 }

@@ -17,7 +17,7 @@
                 <h2>filters</h2>
                 <div class="search-bar">
                     <input type="text" name="search" placeholder="search for a game">
-                    <button id="search button"><i class="fas fa-search"></i></button>
+                    <button id="search-button"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="filter-container opened">
                     <div class="search-filter">

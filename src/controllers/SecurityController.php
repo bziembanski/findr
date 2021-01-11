@@ -15,14 +15,13 @@ class SecurityController extends AppController{
     }
 
     public function login(){
-
         if(!$this->isPost()){
             return $this->render("login");
         }
         
         $email = $_POST["email"];
         $password = $_POST["password"];
-        $user = $this->userRep->getUser($email);
+        $user = $this->userRep->getUserByEmail($email);
         if(!$user){
             return $this->render("login", ['login_messages' => ["User does not exist"]]);
         }
@@ -35,6 +34,7 @@ class SecurityController extends AppController{
             return $this->render("login", ['login_messages' => ['Wrong password']]);
         }
 
+        setcookie("user", $user->getId(), time()+3600);
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/home");
     }
@@ -52,10 +52,17 @@ class SecurityController extends AppController{
         if($password !== $password2){
             return $this->render('login', ['register_messages'=>['Provide proper password']]);
         }
-        $user = new User($email, $this->hashPassword($password));
+        $user = new User(0, $email, $this->hashPassword($password));
         $profile = new UserProfile($email, $username, null,null,null);
         $this->userRep->addUserProfile($user, $profile);
         return $this->render('login', ['register_messages' => ['You\'ve been succesfully registrated!']]);
+    }
+
+    public function logout(){
+        $this->userCookieVerification();
+        setcookie("user", 0, time()-3600);
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/login");
     }
 
     private function hashPassword($password): string{

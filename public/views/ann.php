@@ -14,57 +14,14 @@
         <main class="ann-main">
             <div class="ann-main-container">
                 <section class="ann-filters">
-                    <div class="ann-filter">
-                        <p class="ann-search-filter">search filter:</p>
-                        <p class="ann-search-information">information</p>
-                    </div>
-                    <div class="ann-filter">
-                        <p class="ann-search-filter">search filter:</p>
-                        <p class="ann-search-information">information</p>
-                    </div>
-                    <div class="ann-filter">
-                        <p class="ann-search-filter">search filter:</p>
-                        <p class="ann-search-information">information</p>
-                    </div>
-                    <div class="ann-filter">
-                        <p class="ann-search-filter">search filter:</p>
-                        <p class="ann-search-information">information</p>
-                    </div>
-                    <div class="ann-filter">
-                        <p class="ann-search-filter">search filter:</p>
-                        <p class="ann-search-information">information</p>
-                    </div>
-                    <div class="ann-filter">
-                        <p class="ann-search-filter">search filter:</p>
-                        <p class="ann-search-information">information</p>
-                    </div>
-                    <div class="ann-filter">
-                        <p class="ann-search-filter">search filter:</p>
-                        <p class="ann-search-information">information</p>
-                    </div>
-                    <div class="ann-filter">
-                        <p class="ann-search-filter">search filter:</p>
-                        <p class="ann-search-information">information</p>
-                    </div>
-                    <div class="ann-filter">
-                        <p class="ann-search-filter">search filter:</p>
-                        <p class="ann-search-information">information</p>
-                    </div>
-                    <div class="ann-filter">
-                        <p class="ann-search-filter">search filter:</p>
-                        <p class="ann-search-information">information</p>
-                    </div>
-                    <div class="ann-filter">
-                        <p class="ann-search-filter">search filter:</p>
-                        <p class="ann-search-information">information</p>
-                    </div>
-                    <div class="ann-filter">
-                        <p class="ann-search-filter">search filter:</p>
-                        <p class="ann-search-information">information</p>
-                    </div><div class="ann-filter">
-                        <p class="ann-search-filter">search filter:</p>
-                        <p class="ann-search-information">information</p>
-                    </div>
+<!--                    <div class="ann-filter">-->
+<!--                        <p class="ann-search-filter">search filter:</p>-->
+<!--                        <p class="ann-search-information">information</p>-->
+<!--                    </div>-->
+<!--                    <div class="ann-filter">-->
+<!--                        <p class="ann-search-filter">search filter:</p>-->
+<!--                        <p class="ann-search-information">information</p>-->
+<!--                    </div>-->
                 </section>
                 <section class="ann-content">
                     <div class="ann-user-profile-info">
@@ -85,7 +42,7 @@
                 </section>
                 <section class="ann-ratings-section">
                     <div class="ann-ratings-section-heading">Rating <i class="far fa-thumbs-up"></i> <i class="far fa-thumbs-down"></i></div>
-                    <div class="ann-ratings">
+                    <div class="ratings">
                         <? foreach ($ratings as $rating): ?>
                         <div class="ann-rating">
                             <img src="/public/upload/<?=$rating->getAvatar()?>">
