@@ -11,6 +11,7 @@ Routing::get('searchAction', 'AnnouncementController');
 Routing::get('addAnn', 'AnnouncementController');
 Routing::get('ann', 'AnnouncementController');
 Routing::get('profile', 'ProfileController');
+Routing::get('getNotifications', 'NotificationController');
 Routing::post('login', 'SecurityController');
 Routing::post('register', 'SecurityController');
 Routing::post('logout', 'SecurityController');

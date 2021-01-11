@@ -23,8 +23,8 @@
                     }
                     ?>
                 </div>
-                <label class="edit-profile-username">Username<input type="text" placeholder="Username" name="username"></label>
-                <label class="edit-profile-favourite">Favourite game<input type="text" placeholder="Favourite game" name="favourite_game"></label>
+                <label class="edit-profile-username">Username<input value="<?=$user->getUsername()?>" type="text" placeholder="Username" name="username"></label>
+                <label class="edit-profile-favourite">Favourite game<input value="<?=$user->getFavouriteGame()?>" type="text" placeholder="Favourite game" name="favourite_game"></label>
                 <label class="edit-profile-avatar">Avatar<input type="file" accept="image/jpeg, image/png" name="avatar"></label>
                 <button>Save</button>
             </form>

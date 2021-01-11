@@ -3,18 +3,16 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../models/UserProfile.php';
-require_once __DIR__.'/../repository/UserRepository.php';
 
 class EditProfileController extends AppController{
     const MAX_FILE_SIZE = 1024*1024;
     const SUPPORTED_TYPES = ['image/png', 'image/jpeg'];
     const UPLOAD_DIRECTORY = '/../public/upload/';
     private array $messages = [];
-    private UserRepository $userRepository;
+
     public function __construct()
     {
         parent::__construct();
-        $this->userRepository = new UserRepository();
     }
 
     public function editProfile(){
@@ -25,12 +23,12 @@ class EditProfileController extends AppController{
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['avatar']['name']
             );
             $id = intval($_COOKIE["user"]);
-            $this->userRepository->editProfile($id, $_POST['username'], $_POST['favourite_game'], $_FILES['avatar']['name']);
+            $this->userRep->editProfile($id, $_POST['username'], $_POST['favourite_game'], $_FILES['avatar']['name']);
             $url = "http://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/profile");
         }
 
-        return $this->render("edit_profile", ['messages' => $this->messages]);
+        return $this->render("edit_profile", ['messages' => $this->messages, "user"=>$this->userRep->getProfileById(intval($_COOKIE["user"]))]);
     }
 
     private function validate(array $file): bool{

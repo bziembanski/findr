@@ -8,7 +8,6 @@ class AnnouncementController extends AppController
     private array $messages = [];
     private AnnouncementRepository $annRepository;
     private RatingRepository $ratingsRep;
-    private UserRepository $userRepository;
 
 
     public function __construct()
@@ -16,13 +15,12 @@ class AnnouncementController extends AppController
         parent::__construct();
         $this->annRepository = new AnnouncementRepository();
         $this->ratingsRep = new RatingRepository();
-        $this->userRepository = new UserRepository();
     }
 
     public function search(){
         $this->userCookieVerification();
         $anns = $this->annRepository->getAnns();
-        return $this->render("search", ['anns' => $anns]);
+        return $this->render("search", ['anns' => $anns, "user"=>$this->userRep->getProfileById(intval($_COOKIE["user"])) ]);
     }
 
     public function searchAction(){
@@ -43,13 +41,13 @@ class AnnouncementController extends AppController
         $this->userCookieVerification();
         if ($this->isPost()){
             $user_id = intval($_COOKIE["user"]);
-            $username = $this->userRepository->getProfileById($user_id)->getUsername();
+            $username = $this->userRep->getProfileById($user_id)->getUsername();
             $ann = new Annoucement($username, "", "", $_POST['gameName'], $_POST['desc'],0, $user_id);
             $this->annRepository->addAnn($ann, $user_id);
             $url = "http://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/search");
         }
-        return $this->render("add_ann", ["messages" => $this->messages]);
+        return $this->render("add_ann", ["messages" => $this->messages, "user"=>$this->userRep->getProfileById(intval($_COOKIE["user"]))]);
     }
 
     public function ann($id){

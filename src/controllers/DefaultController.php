@@ -2,7 +2,6 @@
 
 require_once 'AppController.php';
 require_once __DIR__.'/../models/UserProfile.php';
-require_once __DIR__.'/../repository/UserRepository.php';
 
 class DefaultController extends AppController{
     public function index(){
@@ -16,7 +15,7 @@ class DefaultController extends AppController{
   
     public function home(){
         $this->userCookieVerification();
-        $this->render("home");
+        $this->render("home", ["user" => $this->userRep->getProfileById(intval($_COOKIE["user"]))]);
     }
 
 

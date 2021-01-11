@@ -10,8 +10,12 @@
     <div class="profile-header">
         <i class="fas fa-bell"></i>
         <div class="profile-nav">
-            <a href="/profile"><img src="/public/img/avatar.png"></a>
-            <div class="profile-nav-username">username</div>
+            <?
+            if(!isset($user)){
+                $user = $ann;
+            }?>
+            <a href="/profile"><img src="/public/upload/<?=$user->getAvatar()?>"></a>
+            <div class="profile-nav-username"><?=$user->getUsername()?></div>
         </div>
         <a href="/logout" class="nav-logout">logout</a>
     </div>

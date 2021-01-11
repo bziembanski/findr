@@ -1,10 +1,13 @@
 <?
+require_once __DIR__.'/../repository/UserRepository.php';
     class AppController{
 
         private $request;
-        
+        protected UserRepository $userRep;
+
         public function __construct(){
             $this->request = $_SERVER["REQUEST_METHOD"];
+            $this->userRep = new UserRepository();
         }
 
         protected function isPost(): bool{

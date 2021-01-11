@@ -3,15 +3,12 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../models/UserProfile.php';
-require_once __DIR__.'/../repository/UserRepository.php';
 
 class SecurityController extends AppController{
-    private UserRepository $userRep;
 
     public function __construct()
     {
         parent::__construct();
-        $this->userRep = new UserRepository();
     }
 
     public function login(){

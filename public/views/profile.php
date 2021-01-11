@@ -14,125 +14,27 @@
         <main class="profile-main">
             <section class="profile-content">
                 <div class="profile-user-profile-info">
-                    <img src="/public/upload/<?= $profile->getAvatar()?>">
+                    <img src="/public/upload/<?= $user->getAvatar()?>">
                     <div class="profile-username-date-hour">
-                        <div class="profile-username"><?= $profile->getUsername()?></div>
-                        <div class="profile-date"><span>Joined:</span><?= $profile->getJoined()?></div>
-                        <div class="profile-favourite"><span>Favourite game:</span><?= $profile->getFavouriteGame()?></div>
+                        <div class="profile-username"><?= $user->getUsername()?></div>
+                        <div class="profile-date"><span>Joined:</span><?= $user->getJoined()?></div>
+                        <div class="profile-favourite"><span>Favourite game:</span><?= $user->getFavouriteGame()?></div>
                         <a class="profile-edit-link" href="/editProfile"><i class="far fa-edit" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div class="profile-anns">
-                    <div class="announcement">
+                    <? foreach ($anns as $ann): ?>
+                    <a href="/ann/<?=$ann->getId()?>" class="announcement">
                         <div class="announcement-username-date">
-                            <p class="announcement-username">Username</p>
-                            <p class="announcement-date">2020-12-24 9:37 PM</p>
+                            <p class="announcement-username"><?=$ann->getUsername()?></p>
+                            <p class="announcement-date"><?=$ann->getDate()." ".$ann->getTime()?></p>
                         </div>
                         <div class="announcement-content">
-                            <p class="announcement-game-name">Name of the game</p>
-                            <p class="announcement-desc">Description of type of the gameplay, information about rank in game, current level etc.</p>
+                            <p class="announcement-game-name"><?=$ann->getGameName()?></p>
+                            <p class="announcement-desc"><?=$ann->getDescription()?></p>
                         </div>
-                    </div>
-                    <div class="announcement">
-                        <div class="announcement-username-date">
-                            <p class="announcement-username">Username</p>
-                            <p class="announcement-date">2020-12-24 9:37 PM</p>
-                        </div>
-                        <div class="announcement-content">
-                            <p class="announcement-game-name">Name of the game</p>
-                            <p class="announcement-desc">Description of type of the gameplay, information about rank in game, current level etc.</p>
-                        </div>
-                    </div>
-                    <div class="announcement">
-                        <div class="announcement-username-date">
-                            <p class="announcement-username">Username</p>
-                            <p class="announcement-date">2020-12-24 9:37 PM</p>
-                        </div>
-                        <div class="announcement-content">
-                            <p class="announcement-game-name">Name of the game</p>
-                            <p class="announcement-desc">Description of type of the gameplay, information about rank in game, current level etc.</p>
-                        </div>
-                    </div>
-                    <div class="announcement">
-                        <div class="announcement-username-date">
-                            <p class="announcement-username">Username</p>
-                            <p class="announcement-date">2020-12-24 9:37 PM</p>
-                        </div>
-                        <div class="announcement-content">
-                            <p class="announcement-game-name">Name of the game</p>
-                            <p class="announcement-desc">Description of type of the gameplay, information about rank in game, current level etc.</p>
-                        </div>
-                    </div>
-                    <div class="announcement">
-                        <div class="announcement-username-date">
-                            <p class="announcement-username">Username</p>
-                            <p class="announcement-date">2020-12-24 9:37 PM</p>
-                        </div>
-                        <div class="announcement-content">
-                            <p class="announcement-game-name">Name of the game</p>
-                            <p class="announcement-desc">Description of type of the gameplay, information about rank in game, current level etc.</p>
-                        </div>
-                    </div>
-                    <div class="announcement">
-                        <div class="announcement-username-date">
-                            <p class="announcement-username">Username</p>
-                            <p class="announcement-date">2020-12-24 9:37 PM</p>
-                        </div>
-                        <div class="announcement-content">
-                            <p class="announcement-game-name">Name of the game</p>
-                            <p class="announcement-desc">Description of type of the gameplay, information about rank in game, current level etc.</p>
-                        </div>
-                    </div>
-                    <div class="announcement">
-                        <div class="announcement-username-date">
-                            <p class="announcement-username">Username</p>
-                            <p class="announcement-date">2020-12-24 9:37 PM</p>
-                        </div>
-                        <div class="announcement-content">
-                            <p class="announcement-game-name">Name of the game</p>
-                            <p class="announcement-desc">Description of type of the gameplay, information about rank in game, current level etc.</p>
-                        </div>
-                    </div>
-                    <div class="announcement">
-                        <div class="announcement-username-date">
-                            <p class="announcement-username">Username</p>
-                            <p class="announcement-date">2020-12-24 9:37 PM</p>
-                        </div>
-                        <div class="announcement-content">
-                            <p class="announcement-game-name">Name of the game</p>
-                            <p class="announcement-desc">Description of type of the gameplay, information about rank in game, current level etc.</p>
-                        </div>
-                    </div>
-                    <div class="announcement">
-                        <div class="announcement-username-date">
-                            <p class="announcement-username">Username</p>
-                            <p class="announcement-date">2020-12-24 9:37 PM</p>
-                        </div>
-                        <div class="announcement-content">
-                            <p class="announcement-game-name">Name of the game</p>
-                            <p class="announcement-desc">Description of type of the gameplay, information about rank in game, current level etc.</p>
-                        </div>
-                    </div>
-                    <div class="announcement">
-                        <div class="announcement-username-date">
-                            <p class="announcement-username">Username</p>
-                            <p class="announcement-date">2020-12-24 9:37 PM</p>
-                        </div>
-                        <div class="announcement-content">
-                            <p class="announcement-game-name">Name of the game</p>
-                            <p class="announcement-desc">Description of type of the gameplay, information about rank in game, current level etc.</p>
-                        </div>
-                    </div>
-                    <div class="announcement">
-                        <div class="announcement-username-date">
-                            <p class="announcement-username">Username</p>
-                            <p class="announcement-date">2020-12-24 9:37 PM</p>
-                        </div>
-                        <div class="announcement-content">
-                            <p class="announcement-game-name">Name of the game</p>
-                            <p class="announcement-desc">Description of type of the gameplay, information about rank in game, current level etc.</p>
-                        </div>
-                    </div>
+                    </a>
+                    <?endforeach;?>
                 </div>
             </section>
             <section class="profile-ratings-section">

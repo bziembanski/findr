@@ -52,8 +52,11 @@ nav header {
     margin-right: 0.5em;
 }
 .profile-nav a img{
-    height: 100%;
+    width: 2.5em;
+    height: 2.5em;
     margin-right: 0.5em;
+    object-fit: cover;
+    border-radius: 0.5em;
 }
 .profile-header{
     color: #D2D2D2;
@@ -305,6 +308,8 @@ section.announcements{
     height: 9em;
     width: 9em;
     border-radius: 1em;
+    object-fit: cover;
+    object-position: center;
 }
 .announcement .announcement-username{
     font-size: 1.6em;
@@ -478,6 +483,7 @@ section.announcements{
     height: 20em;
     width: 20em;
     border-radius: 2em;
+    object-fit: cover;
 }
 .ann-username-date-hour{
     display: flex;
@@ -576,6 +582,7 @@ section.announcements{
     width: 4em;
     height: 4em;
     border-radius: 0.5em;
+    object-fit: cover;
 }
 .ann-rating .ann-rating-username, .profile-rating .profile-rating-username{
     font-size:1.5em;
@@ -651,6 +658,7 @@ section.announcements{
     width:20em;
     height: 20em;
     border-radius: 2em;
+    object-fit: cover;
 }
 .profile-username{
     font-size:2.5em;

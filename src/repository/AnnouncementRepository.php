@@ -46,6 +46,16 @@ class AnnouncementRepository extends Repository
         return $this->getAnnouncementsArray($anns);
     }
 
+    public function getAnnsById(int $id): array{
+        $stmt = $this->database->connect()->prepare('
+            SELECT ann_id, game_name, description, date, username, avatar, u.user_id FROM announcements JOIN users u on u.user_id = announcements.user_id JOIN profiles p on p.profile_id = u.profile_id WHERE announcements.user_id=:user_id;
+        ');
+        $stmt->bindParam(':user_id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $anns = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $this->getAnnouncementsArray($anns);
+    }
+
     public function getAnnsByGameNameOrDesc(string $searchString): array
     {
         $searchString = '%'.strtolower($searchString).'%';

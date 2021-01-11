@@ -4,6 +4,7 @@ require_once 'src/controllers/SecurityController.php';
 require_once 'src/controllers/EditProfileController.php';
 require_once 'src/controllers/AnnouncementController.php';
 require_once 'src/controllers/ProfileController.php';
+require_once 'src/controllers/NotificationController.php';
 
 class Routing{
     public static array $routes;
