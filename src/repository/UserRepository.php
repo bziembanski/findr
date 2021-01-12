@@ -66,7 +66,7 @@ class UserRepository extends Repository
 
     public function getProfileById(int $id): ?UserProfile{
         $statement = $this->database->connect()->prepare("
-            SELECT email, username, joined, favourite_game, avatar FROM public.users u JOIN public.profiles p 
+            SELECT email, username, joined, favourite_game, avatar, user_id FROM public.users u JOIN public.profiles p 
                 ON u.profile_id=p.profile_id WHERE u.user_id = :id
         ");
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
@@ -82,7 +82,8 @@ class UserRepository extends Repository
             $profile['username'],
             $profile['joined'],
             $profile['favourite_game'],
-            $profile['avatar']
+            $profile['avatar'],
+            $profile['user_id']
         );
     }
 

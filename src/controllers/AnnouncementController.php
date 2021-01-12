@@ -19,6 +19,14 @@ class AnnouncementController extends AppController
 
     public function search(){
         $this->userCookieVerification();
+        if($this->isPost()){
+            //var_dump($_POST);
+            $anns = $this->annRepository->getAnnsByGameNameOrDesc($_POST["search"]);
+            $anns = $this->annRepository->getAnnouncementsArray($anns);
+            return $this->render("search", ['anns' => $anns, "user"=>$this->userRep->getProfileById(intval($_COOKIE["user"])),"search"=> $_POST["search"]]);
+
+        }
+
         $anns = $this->annRepository->getAnns();
         return $this->render("search", ['anns' => $anns, "user"=>$this->userRep->getProfileById(intval($_COOKIE["user"])) ]);
     }

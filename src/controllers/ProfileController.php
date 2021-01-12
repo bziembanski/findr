@@ -17,6 +17,19 @@ class ProfileController extends AppController
         $this->annRep = new AnnouncementRepository();
     }
 
+    public function user($id){
+        $this->userCookieVerification();
+        if(is_numeric($id)){
+            $idInt = intval($id);
+            $profile = $this->userRep->getProfileById($id);
+            $ratings = $this->ratingsRep->getRatings($id);
+            $anns = $this->annRep->getAnnsById($id);
+            return $this->render("profile", ['user'=>$profile, 'ratings' => $ratings, 'anns' => $anns]);
+        }
+
+
+    }
+
     public function profile(){
         $this->userCookieVerification();
         $id = intval($_COOKIE["user"]);

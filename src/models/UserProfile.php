@@ -2,19 +2,21 @@
 
 
 class UserProfile{
-    private $email;
+    private string $email;
     private $joined;
-    private $favouriteGame;
-    private $avatar;
-    private $username;
+    private string $favouriteGame;
+    private string $avatar;
+    private string $username;
+    private int $userId;
 
-    public function __construct($email, $username, $joined, $favouriteGame, $avatar)
+    public function __construct($email, $username, $joined, $favouriteGame, $avatar, $userId)
     {
         $this->email = $email;
         $this->joined = explode(".",$joined)[0];
         $this->favouriteGame = $favouriteGame;
         $this->avatar = $avatar;
         $this->username = $username;
+        $this->userId = $userId;
     }
 
     public function getUsername(): string
@@ -65,5 +67,15 @@ class UserProfile{
     public function setAvatar($avatar)
     {
         $this->avatar = $avatar;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
+
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
     }
 }

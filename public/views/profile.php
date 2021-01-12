@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/public/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <script src="https://kit.fontawesome.com/09f69f3f15.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/public/js/ratings.js" defer></script>
     <title>PROFILE PAGE</title>
 </head>
 <body>
@@ -19,7 +20,9 @@
                         <div class="profile-username"><?= $user->getUsername()?></div>
                         <div class="profile-date"><span>Joined:</span><?= $user->getJoined()?></div>
                         <div class="profile-favourite"><span>Favourite game:</span><?= $user->getFavouriteGame()?></div>
-                        <a class="profile-edit-link" href="/editProfile"><i class="far fa-edit" aria-hidden="true"></i></a>
+                        <a class="profile-edit-link <?=intval($_COOKIE["user"])!=$user->getUserId() ? "none" : ""?>" href="/editProfile">
+                            <i class="far fa-edit" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="profile-anns">
@@ -38,19 +41,8 @@
                 </div>
             </section>
             <section class="profile-ratings-section">
-                <div class="profile-ratings-section-heading">Rating <i class="far fa-thumbs-up"></i> <i class="far fa-thumbs-down"></i></div>
-                <div class="ratings">
-                    <? foreach ($ratings as $rating): ?>
-                        <div class="ann-rating">
-                            <img src="/public/upload/<?=$rating->getAvatar()?>">
-                            <p class="ann-rating-username"><?=$rating->getUsername()?></p>
-                            <i class="far fa-thumbs-<?=$rating->isRatingType() ? 'up': 'down'?>"></i>
-                            <p class="ann-rating-date"><?=explode(" ", $rating->getDate(),)[0]?></p>
-                        </div>
-                    <? endforeach;?>
-                </div>
+                <? include ("ratings.php")?>
             </section>
-            
         </main>
     </div>
 </body>

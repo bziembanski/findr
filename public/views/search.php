@@ -16,7 +16,7 @@
             <section class="search-filters">
                 <h2>filters</h2>
                 <div class="search-bar">
-                    <input type="text" name="search" placeholder="search for a game">
+                    <input type="text" name="search" placeholder="search for a game" value="<?=$search?>">
                     <button id="search-button"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="filter-container opened">

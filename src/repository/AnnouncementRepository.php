@@ -67,7 +67,7 @@ class AnnouncementRepository extends Repository
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    private function getAnnouncementsArray(array $anns): array
+    public function getAnnouncementsArray(array $anns): array
     {
         $result = [];
         foreach($anns as $ann){

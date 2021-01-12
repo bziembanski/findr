@@ -50,7 +50,7 @@ class SecurityController extends AppController{
             return $this->render('login', ['register_messages'=>['Provide proper password']]);
         }
         $user = new User(0, $email, $this->hashPassword($password));
-        $profile = new UserProfile($email, $username, null,null,null);
+        $profile = new UserProfile($email, $username, null,null,null,0);
         $this->userRep->addUserProfile($user, $profile);
         return $this->render('login', ['register_messages' => ['You\'ve been succesfully registrated!']]);
     }

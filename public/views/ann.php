@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/public/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <script src="https://kit.fontawesome.com/09f69f3f15.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/public/js/ratings.js" defer></script>
     <title>ANNOUNCEMENT</title>
 </head>
 <body>
@@ -41,17 +42,7 @@
                     </div>
                 </section>
                 <section class="ann-ratings-section">
-                    <div class="ann-ratings-section-heading">Rating <i class="far fa-thumbs-up"></i> <i class="far fa-thumbs-down"></i></div>
-                    <div class="ratings">
-                        <? foreach ($ratings as $rating): ?>
-                        <div class="ann-rating">
-                            <img src="/public/upload/<?=$rating->getAvatar()?>">
-                            <p class="ann-rating-username"><?=$rating->getUsername()?></p>
-                            <i class="far fa-thumbs-<?=$rating->isRatingType() ? 'up': 'down'?>"></i>
-                            <p class="ann-rating-date"><?=explode(" ", $rating->getDate(),)[0]?></p>
-                        </div>
-                        <? endforeach;?>
-                    </div>
+                    <? include ("ratings.php")?>
                 </section>
             </div>
         </main>
