@@ -1,4 +1,4 @@
-<div id="<?=$user->getUserId()?>" class="profile-ratings-section-heading">
+<div id="<?=$current?>" class="profile-ratings-section-heading">
     Rating
     <?
     function isUp($rating){

@@ -24,7 +24,7 @@ class ProfileController extends AppController
             $profile = $this->userRep->getProfileById($id);
             $ratings = $this->ratingsRep->getRatings($id);
             $anns = $this->annRep->getAnnsById($id);
-            return $this->render("profile", ['user'=>$profile, 'ratings' => $ratings, 'anns' => $anns]);
+            return $this->render("profile", ['current'=>$id,'profile'=>$profile, 'ratings' => $ratings, 'anns' => $anns, "user"=>$this->userRep->getProfileById(intval($_COOKIE["user"]))]);
         }
 
 
@@ -36,6 +36,6 @@ class ProfileController extends AppController
         $profile = $this->userRep->getProfileById($id);
         $ratings = $this->ratingsRep->getRatings($id);
         $anns = $this->annRep->getAnnsById($id);
-        return $this->render("profile", ['user'=>$profile, 'ratings' => $ratings, 'anns' => $anns]);
+        return $this->render("profile", ['current'=>$profile->getUserId(),'profile'=>$profile, 'ratings' => $ratings, 'anns' => $anns, "user"=>$profile]);
     }
 }

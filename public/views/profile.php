@@ -15,12 +15,12 @@
         <main class="profile-main">
             <section class="profile-content">
                 <div class="profile-user-profile-info">
-                    <img src="/public/upload/<?= $user->getAvatar()?>">
+                    <img src="/public/upload/<?= $profile->getAvatar()?>">
                     <div class="profile-username-date-hour">
-                        <div class="profile-username"><?= $user->getUsername()?></div>
-                        <div class="profile-date"><span>Joined:</span><?= $user->getJoined()?></div>
-                        <div class="profile-favourite"><span>Favourite game:</span><?= $user->getFavouriteGame()?></div>
-                        <a class="profile-edit-link <?=intval($_COOKIE["user"])!=$user->getUserId() ? "none" : ""?>" href="/editProfile">
+                        <div class="profile-username"><?= $profile->getUsername()?></div>
+                        <div class="profile-date"><span>Joined:</span><?= $profile->getJoined()?></div>
+                        <div class="profile-favourite"><span>Favourite game:</span><?= $profile->getFavouriteGame()?></div>
+                        <a class="profile-edit-link <?=intval($_COOKIE["user"])!=$profile->getUserId() ? "none" : ""?>" href="/editProfile">
                             <i class="far fa-edit" aria-hidden="true"></i>
                         </a>
                     </div>

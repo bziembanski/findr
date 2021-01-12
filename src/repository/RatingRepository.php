@@ -5,7 +5,11 @@ class RatingRepository extends Repository
 {
     public function getRatings(int $id): ?array{
         $stmt = $this->database->connect()->prepare('
-            SELECT rating_id, rating_type, rated_on, username, avatar FROM ratings JOIN users u on u.user_id = ratings.rated_by JOIN profiles p on p.profile_id = u.profile_id WHERE rated_who=:id ORDER BY rated_on DESC;
+            SELECT rating_id, rating_type, rated_on, username, avatar 
+            FROM ratings 
+                JOIN users u on u.user_id = ratings.rated_by 
+                JOIN profiles p on p.profile_id = u.profile_id 
+            WHERE rated_who=:id ORDER BY rated_on DESC;
         ');
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -25,37 +29,21 @@ class RatingRepository extends Repository
 
     public function rate(bool $type, int $ratedWho, int $ratedBy): array{
         $stmt = $this->database->connect()->prepare("
-            SELECT 1 FROM ratings WHERE rated_who=:rated_who and rated_by=:rated_by;
+            INSERT INTO ratings (rating_type, rated_who, rated_by) 
+            VALUES (:rating_type, :rated_who, :rated_by) 
+            ON CONFLICT ON CONSTRAINT ratings_pk_2 DO UPDATE SET rating_type=excluded.rating_type;
         ");
-        $stmt->bindParam(":rated_who", $ratedWho, PDO::PARAM_INT);
         $stmt->bindParam(":rated_by", $ratedBy, PDO::PARAM_INT);
+        $stmt->bindParam(":rated_who", $ratedWho, PDO::PARAM_INT);
+        $stmt->bindParam(":rating_type", $type, PDO::PARAM_BOOL);
         $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        if(empty($result)){
-            $stmt = $this->database->connect()->prepare("
-            INSERT INTO ratings (rating_type, rated_who, rated_by) VALUES (?, ?, ?);
-        ");
-            $stmt->execute([
-                $type,
-                $ratedWho,
-                $ratedBy
-            ]);
-        }else{
-            $stmt = $this->database->connect()->prepare("
-                UPDATE ratings SET rating_type=:rating_type, rated_on=now() WHERE rated_who=:rated_who AND rated_by=:rated_by;
-            ");
-
-            $time = time();
-
-            $stmt->bindParam(":rating_type", $type, PDO::PARAM_BOOL);
-            $stmt->bindParam(":rated_who", $ratedWho, PDO::PARAM_INT);
-            $stmt->bindParam(":rated_by", $ratedBy, PDO::PARAM_INT);
-
-            $stmt->execute();
-        }
 
         $stmt = $this->database->connect()->prepare('
-            SELECT rating_id, rating_type, rated_on, username, avatar FROM ratings JOIN users u on u.user_id = ratings.rated_by JOIN profiles p on p.profile_id = u.profile_id WHERE rated_who=:rated_who ORDER BY rated_on DESC;
+            SELECT rating_id, rating_type, rated_on, username, avatar 
+            FROM ratings 
+                JOIN users u on u.user_id = ratings.rated_by 
+                JOIN profiles p on p.profile_id = u.profile_id 
+            WHERE rated_who=:rated_who ORDER BY rated_on DESC;
         ');
         $stmt->bindParam(":rated_who", $ratedWho, PDO::PARAM_INT);
         $stmt->execute();

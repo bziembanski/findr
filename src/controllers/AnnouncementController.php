@@ -64,7 +64,7 @@ class AnnouncementController extends AppController
             $idInt = intval($id);
             $ann = $this->annRepository->getAnn($idInt);
             $ratings = $this->ratingsRep->getRatings($ann->getUserId());
-            return $this->render("ann", ["ann" => $ann, "ratings" => $ratings]);
+            return $this->render("ann", ["current" => $ann->getUserId(),"ann" => $ann, "ratings" => $ratings, "user"=>$this->userRep->getProfileById(intval($_COOKIE["user"]))]);
         }else{
             die("Wrong url");
         }
