@@ -15,7 +15,7 @@ class DefaultController extends AppController{
   
     public function home(){
         $this->userCookieVerification();
-        $this->render("home", ["user" => $this->userRep->getProfileById(intval($_COOKIE["user"]))]);
+        $this->render("home", []);
     }
 
 

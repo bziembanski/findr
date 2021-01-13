@@ -19,6 +19,7 @@ class SecurityController extends AppController{
         $email = $_POST["email"];
         $password = $_POST["password"];
         $user = $this->userRep->getUserByEmail($email);
+        $profile = $this->userRep->getProfileByEmail($email);
         if(!$user){
             return $this->render("login", ['login_messages' => ["User does not exist"]]);
         }
@@ -32,6 +33,8 @@ class SecurityController extends AppController{
         }
 
         setcookie("user", $user->getId(), time()+3600);
+        setcookie("username", $profile->getUsername(), time()+3600);
+        setcookie("avatar", $profile->getAvatar(), time()+3600);
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/home");
     }

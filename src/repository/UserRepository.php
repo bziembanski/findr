@@ -44,7 +44,7 @@ class UserRepository extends Repository
     }
     public function getProfileByEmail(string $email): ?UserProfile{
         $statement = $this->database->connect()->prepare("
-            SELECT email, username, joined, favourite_game, avatar FROM public.users u JOIN public.profiles p 
+            SELECT email, username, joined, favourite_game, avatar, u.user_id FROM public.users u JOIN public.profiles p 
                 ON u.profile_id=p.profile_id WHERE u.email = :email
         ");
         $statement->bindParam(':email', $email, PDO::PARAM_STR);
@@ -60,7 +60,8 @@ class UserRepository extends Repository
             $profile['username'],
             $profile['joined'],
             $profile['favourite_game'],
-            $profile['avatar']
+            $profile['avatar'],
+            $profile['user_id']
         );
     }
 

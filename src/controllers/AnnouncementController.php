@@ -23,12 +23,12 @@ class AnnouncementController extends AppController
             //var_dump($_POST);
             $anns = $this->annRepository->getAnnsByGameNameOrDesc($_POST["search"]);
             $anns = $this->annRepository->getAnnouncementsArray($anns);
-            return $this->render("search", ['anns' => $anns, "user"=>$this->userRep->getProfileById(intval($_COOKIE["user"])),"search"=> $_POST["search"]]);
+            return $this->render("search", ['anns' => $anns, "search"=> $_POST["search"]]);
 
         }
 
         $anns = $this->annRepository->getAnns();
-        return $this->render("search", ['anns' => $anns, "user"=>$this->userRep->getProfileById(intval($_COOKIE["user"])) ]);
+        return $this->render("search", ['anns' => $anns]);
     }
 
     public function searchAction(){
@@ -55,7 +55,7 @@ class AnnouncementController extends AppController
             $url = "http://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/search");
         }
-        return $this->render("add_ann", ["messages" => $this->messages, "user"=>$this->userRep->getProfileById(intval($_COOKIE["user"]))]);
+        return $this->render("add_ann", ["messages" => $this->messages]);
     }
 
     public function ann($id){
@@ -64,7 +64,7 @@ class AnnouncementController extends AppController
             $idInt = intval($id);
             $ann = $this->annRepository->getAnn($idInt);
             $ratings = $this->ratingsRep->getRatings($ann->getUserId());
-            return $this->render("ann", ["current" => $ann->getUserId(),"ann" => $ann, "ratings" => $ratings, "user"=>$this->userRep->getProfileById(intval($_COOKIE["user"]))]);
+            return $this->render("ann", ["current" => $ann->getUserId(),"ann" => $ann, "ratings" => $ratings]);
         }else{
             die("Wrong url");
         }
