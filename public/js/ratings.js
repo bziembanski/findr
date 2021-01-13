@@ -16,7 +16,7 @@ down.addEventListener("click", function () {
 })
 
 function rate(type){
-    const cookieUser = document.cookie.split("=")[1];
+    const cookieUser = document.cookie.split(";")[2].split("=")[1];
     if(user_id!==cookieUser){
         const data = {type: type, rated_who: parseInt(user_id), rated_by: parseInt(cookieUser)};
         fetch("/rate", {

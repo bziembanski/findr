@@ -503,6 +503,7 @@ section.announcements{
 .ann-username{
     font-size:3em;
     color:#D4D4D4;
+    text-decoration: none;
 }
 .ann-date{
     border-top:1px solid #636363
@@ -595,6 +596,8 @@ section.announcements{
 }
 .ann-rating .ann-rating-username, .profile-rating .profile-rating-username{
     font-size:1.5em;
+    text-decoration: none;
+    color: #d4d4d4;
 }
 .ann-rating i, .profile-rating i{
     font-size:1.5em;

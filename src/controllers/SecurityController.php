@@ -12,6 +12,10 @@ class SecurityController extends AppController{
     }
 
     public function login(){
+        if(isset($_COOKIE["user"])){
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/home");
+        }
         if(!$this->isPost()){
             return $this->render("login");
         }

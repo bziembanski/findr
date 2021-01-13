@@ -28,7 +28,7 @@
                     <div class="ann-user-profile-info">
                         <img src="/public/upload/<?=$ann->getAvatar()?>">
                         <div class="ann-username-date-hour">
-                            <div class="ann-username"><?=$ann->getUsername()?></div>
+                            <a href="/user/<?=$ann->getUserId()?>" class="ann-username"><?=$ann->getUsername()?></a>
                             <div class="ann-date"><?=$ann->getDate()?></div>
                             <div class="ann-hour"><?=$ann->getTime()?></div>
                         </div>

@@ -5,7 +5,7 @@ class RatingRepository extends Repository
 {
     public function getRatings(int $id): ?array{
         $stmt = $this->database->connect()->prepare('
-            SELECT rating_id, rating_type, rated_on, username, avatar 
+            SELECT rating_id, rating_type, rated_on, username, avatar, user_id 
             FROM ratings 
                 JOIN users u on u.user_id = ratings.rated_by 
                 JOIN profiles p on p.profile_id = u.profile_id 
@@ -21,7 +21,8 @@ class RatingRepository extends Repository
                 $rating["rating_type"],
                 $rating["rated_on"],
                 $rating["username"],
-                $rating["avatar"]
+                $rating["avatar"],
+                $rating["user_id"]
             );
         }
         return $result;
@@ -39,7 +40,7 @@ class RatingRepository extends Repository
         $stmt->execute();
 
         $stmt = $this->database->connect()->prepare('
-            SELECT rating_id, rating_type, rated_on, username, avatar 
+            SELECT rating_id, rating_type, rated_on, username, avatar, user_id 
             FROM ratings 
                 JOIN users u on u.user_id = ratings.rated_by 
                 JOIN profiles p on p.profile_id = u.profile_id 
