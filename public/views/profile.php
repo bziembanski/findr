@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="/public/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
-    <script src="https://kit.fontawesome.com/09f69f3f15.js" crossorigin="anonymous"></script>
+    <?php include("head.php")?>
     <script type="text/javascript" src="/public/js/ratings.js" defer></script>
     <title>PROFILE PAGE</title>
 </head>
@@ -17,7 +15,7 @@
                 <div class="profile-user-profile-info">
                     <img src="/public/upload/<?= $profile->getAvatar()?>">
                     <div class="profile-username-date-hour">
-                        <div class="profile-username"><?= $profile->getUsername()?></div>
+                        <a href="/user/<?=$profile->getUserId()?>" class="profile-username"><?= $profile->getUsername()?></a>
                         <div class="profile-date"><span>Joined:</span><?= $profile->getJoined()?></div>
                         <div class="profile-favourite"><span>Favourite game:</span><?= $profile->getFavouriteGame()?></div>
                         <a class="profile-edit-link <?=intval($_COOKIE["user"])!=$profile->getUserId() ? "none" : ""?>" href="/editProfile">

@@ -14,6 +14,7 @@ Routing::get('profile', 'ProfileController');
 Routing::get('user', 'ProfileController');
 Routing::get('rate', 'RatingController');
 Routing::get('getNotifications', 'NotificationController');
+Routing::get('sendInvite', 'NotificationController');
 Routing::post('login', 'SecurityController');
 Routing::post('register', 'SecurityController');
 Routing::post('logout', 'SecurityController');

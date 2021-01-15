@@ -4,8 +4,12 @@ const user_id = up.parentElement.getAttribute("id");
 const ratingsContainer = document.querySelector(".ratings");
 const upPercent = document.querySelector("#ratings-up-percent")
 
-function isUp(element, index, array) {
+function isUp(element) {
     return (element["rating_type"]);
+}
+
+function isUserCookie(element){
+    return element.split("=")[0]==="user";
 }
 
 up.addEventListener("click", function () {
@@ -16,7 +20,7 @@ down.addEventListener("click", function () {
 })
 
 function rate(type){
-    const cookieUser = document.cookie.split(";")[2].split("=")[1];
+    const cookieUser = document.cookie.split(";").filter(isUserCookie)[0].split("=")[1];
     if(user_id!==cookieUser){
         const data = {type: type, rated_who: parseInt(user_id), rated_by: parseInt(cookieUser)};
         fetch("/rate", {

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="/public/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
-    <script src="https://kit.fontawesome.com/09f69f3f15.js" crossorigin="anonymous"></script>
+    <?php include("head.php")?>
     <script type="text/javascript" src="/public/js/ratings.js" defer></script>
+    <script type="text/javascript" src="/public/js/ann.js" defer></script>
     <title>ANNOUNCEMENT</title>
 </head>
 <body>
@@ -38,11 +37,11 @@
                         <div class="ann-desc"><?=$ann->getDescription()?></div>
                     </div>
                     <div class="ann-invite-button">
-                        <button id="invite-button">invite me</button>
+                        <button id="invite-button" value="<?=$ann->getId()?>">invite me</button>
                     </div>
                 </section>
                 <section class="ann-ratings-section">
-                    <? include ("ratings.php")?>
+                    <? include ("ratings.php") ?>
                 </section>
             </div>
         </main>

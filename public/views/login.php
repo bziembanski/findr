@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="/public/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
-    <script type="text/javascript" src="/public/js/script.js" defer></script>
+    <?php include("head.php")?>
     <title>LOGIN PAGE</title>
 </head>
 <body>
