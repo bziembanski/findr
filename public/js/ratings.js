@@ -7,11 +7,6 @@ const upPercent = document.querySelector("#ratings-up-percent")
 function isUp(element) {
     return (element["rating_type"]);
 }
-
-function isUserCookie(element){
-    return element.split("=")[0]==="user";
-}
-
 up.addEventListener("click", function () {
     rate(true);
 })
@@ -20,7 +15,8 @@ down.addEventListener("click", function () {
 })
 
 function rate(type){
-    const cookieUser = document.cookie.split(";").filter(isUserCookie)[0].split("=")[1];
+    const cookieUser = getUserCookie();
+
     if(user_id!==cookieUser){
         const data = {type: type, rated_who: parseInt(user_id), rated_by: parseInt(cookieUser)};
         fetch("/rate", {

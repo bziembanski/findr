@@ -16,7 +16,7 @@ function markValidation(element, condition){
     !condition ? element.classList.add("no-valid") : element.classList.remove("no-valid")
 }
 
-function checkInput(element, validation, ){
+function checkInput(element){
     setTimeout(function (){
         markValidation(element, isEmail(element.value))
     }, 1000)

@@ -18,3 +18,10 @@
     </div>
 
 </header>
+<div class="notifications-pop-up" tabindex="-1"><img src="/public/img/loading.svg"></div>
+<template id="notification-template">
+    <div class="notification">
+        <img src="/public/upload/">
+        <p class="notification-content"></p>
+    </div>
+</template>

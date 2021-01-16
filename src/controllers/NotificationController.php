@@ -28,4 +28,18 @@ class NotificationController extends AppController
         }
     }
 
+    public function getNotifications()
+    {
+        $this->userCookieVerification();
+        $contentType = isset($_SERVER['CONTENT_TYPE']) ? trim($_SERVER['CONTENT_TYPE']) : "";
+        if($contentType === 'application/json'){
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content, true);
+            $data = $this->notificationRep->getNotificationsByNotified($decoded["notified_id"]);
+            header('Content-type: application/json');
+            http_response_code(200);
+            echo json_encode($data);
+        }
+    }
+
 }

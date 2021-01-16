@@ -55,7 +55,7 @@ function createAnn(ann){
     const desc = clone.querySelector(".announcement-desc");
     desc.innerHTML=ann.description;
     const announcementDiv = clone.querySelector(".announcement");
-    announcementDiv.id = ann.ann_id;
+    announcementDiv.setAttribute("id",ann.ann_id);
     announcementDiv.setAttribute("href", `/ann/${ann.ann_id}`)
 
     annsContainer.appendChild(clone);

@@ -1,12 +1,9 @@
 const inviteButton = document.querySelector("#invite-button");
 const annId = inviteButton.getAttribute("value");
-const notifier = parseInt(document.cookie.split(";").filter(isUserCookie)[0].split("=")[1]);
+const notifier = parseInt(getUserCookie());
 const notified = parseInt(document.querySelector(".profile-ratings-section-heading").getAttribute("id"));
 const type = "question"
 
-function isUserCookie(element){
-    return element.split("=")[0]==="user";
-}
 
 function sendInvite(){
     if(notified!==notifier){
@@ -17,9 +14,7 @@ function sendInvite(){
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-        }).then(function (response) {
-            console.log(response.json());
-        })
+        }).then(function (response) {})
     }
 
 }

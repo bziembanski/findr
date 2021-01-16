@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <?php include("head.php")?>
+    <script type="text/javascript" src="/public/js/input_verification.js" defer></script>
     <title>LOGIN PAGE</title>
 </head>
 <body>
