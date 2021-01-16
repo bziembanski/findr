@@ -724,16 +724,24 @@ section.announcements{
     justify-content: flex-start;
     width:30em;
     min-height: 10vh;
-    max-height: 80vh;
+    max-height: 75vh;
     top: 10vh;
     right: 10em;
     background-color: #101010;
     border-radius: 1.5em;
     z-index: 999;
     display: none;
-    overflow-y: auto;
+    overflow: auto;
     box-shadow: 0 0.5em 0.9em #050505;
     text-align: center;
+    outline: none;
+}
+
+.notification-gamename{
+    font-style: italic;
+}
+.notification-content{
+    padding-top: 0.5em;
 }
 .notifications-pop-up > img{
     height: 100%;
@@ -749,15 +757,16 @@ section.announcements{
     padding: 1em;
     color: #d2d2d2;
     text-align: left;
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
+
 .notification:hover{
     background-color: #202020;
 }
 
 .notification img{
-    width: 6em;
-    height: 6em;
+    width: 4em;
+    height: 4em;
     border-radius: 0.7em;
 }
 

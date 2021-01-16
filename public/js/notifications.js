@@ -13,8 +13,8 @@ function getNotifications() {
     }).then(function (response) {
         return response.json();
     }).then(function(notifications){
-        notificationsContainer.innerHTML="";
         loadNotifications(notifications);
+        notificationsContainer.removeChild(notificationsContainer.querySelector("img"))
     });
 }
 
@@ -22,6 +22,10 @@ bellButton.addEventListener("click", function () {
     if(notificationsContainer.classList.contains("notifications-visible")){
         notificationsContainer.classList.remove("notifications-visible");
     }else{
+        const loading = document.createElement("img")
+        loading.src="/public/img/loading.svg";
+        notificationsContainer.innerHTML="";
+        notificationsContainer.appendChild(loading);
         notificationsContainer.classList.add("notifications-visible");
         notificationsContainer.focus();
         getNotifications();
@@ -44,7 +48,7 @@ function createNotification(notification){
     const image = clone.querySelector("img");
     image.src=`/public/upload/${notification["avatar"]}`;
     const content = clone.querySelector(".notification-content");
-    content.innerHTML=`User ${notification["username"]} wants to play ${notification["game_name"]} with you.`;
+    content.innerHTML=`User ${notification["username"]} wants to play <span class="notification-gamename">${notification["game_name"]}</span> with you.`;
 
     const notificationDiv = clone.querySelector(".notification");
     notificationDiv.setAttribute("id", notification["notif_id"]);

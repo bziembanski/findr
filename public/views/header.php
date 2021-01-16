@@ -18,7 +18,7 @@
     </div>
 
 </header>
-<div class="notifications-pop-up" tabindex="-1"><img src="/public/img/loading.svg"></div>
+<div class="notifications-pop-up" tabindex="-1"></div>
 <template id="notification-template">
     <div class="notification">
         <img src="/public/upload/">
