@@ -14,14 +14,14 @@
         <main class="ann-main">
             <div class="ann-main-container">
                 <section class="ann-filters">
-<!--                    <div class="ann-filter">-->
-<!--                        <p class="ann-search-filter">search filter:</p>-->
-<!--                        <p class="ann-search-information">information</p>-->
-<!--                    </div>-->
-<!--                    <div class="ann-filter">-->
-<!--                        <p class="ann-search-filter">search filter:</p>-->
-<!--                        <p class="ann-search-information">information</p>-->
-<!--                    </div>-->
+                    <div class="ann-filter">
+                        <p class="ann-search-filter">search filter:</p>
+                        <p class="ann-search-information">information</p>
+                    </div>
+                    <div class="ann-filter">
+                        <p class="ann-search-filter">search filter:</p>
+                        <p class="ann-search-information">information</p>
+                    </div>
                 </section>
                 <section class="ann-content">
                     <div class="ann-user-profile-info">
@@ -30,6 +30,7 @@
                             <a href="/user/<?=$ann->getUserId()?>" class="ann-username"><?=$ann->getUsername()?></a>
                             <div class="ann-date"><?=$ann->getDate()?></div>
                             <div class="ann-hour"><?=$ann->getTime()?></div>
+                            <i class="fas fa-trash <?=intval($_COOKIE["user"])!=$ann->getUserId() && $_COOKIE["role"]!="admin" ? "none" : ""?>"></i>
                         </div>
                     </div>
                     <div class="ann-gamename-desc">

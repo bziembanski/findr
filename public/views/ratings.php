@@ -16,18 +16,16 @@
 <div class="ratings">
     <? foreach ($ratings as $rating): ?>
         <div class="ann-rating">
-            <img src="/public/upload/<?=$rating->getAvatar()?>">
-            <a href="/user/<?=$rating->getUserId()?>" class="ann-rating-username"><?=$rating->getUsername()?></a>
+            <a href="/user/<?=$rating->getUserId()?>"><img src="/public/upload/<?=$rating->getAvatar()?>"></a>
             <i class="far fa-thumbs-<?=$rating->isRatingType() ? 'up': 'down'?>"></i>
-            <p class="ann-rating-date"><?=explode(" ", $rating->getDate(),)[0]?></p>
+            <p class="ann-rating-date"><?=explode(" ", $rating->getDate())[0]?></p>
         </div>
     <? endforeach;?>
 </div>
 
 <template id="rating-template">
     <div class="ann-rating">
-        <img src="/public/upload/>">
-        <p class="ann-rating-username">username</p>
+        <img>
         <i class="far"></i>
         <p class="ann-rating-date">date</p>
     </div>

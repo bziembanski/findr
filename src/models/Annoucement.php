@@ -11,8 +11,9 @@ class Annoucement
     private string $description;
     private int $id;
     private int $userId;
+    private string $gameUserName;
 
-    public function __construct(string $username, string $avatar, string $date, string $gameName, string $description, int $id, int $userId)
+    public function __construct(string $username, string $avatar, string $date, string $gameName, string $description, int $id, int $userId, string $gameUserName)
     {
         $date_array = explode(" ", $date);
         $this->username = $username;
@@ -23,6 +24,7 @@ class Annoucement
         $this->description = $description;
         $this->id = $id;
         $this->userId = $userId;
+        $this->gameUserName = $gameUserName;
     }
 
     public function getAvatar(): string
@@ -30,19 +32,9 @@ class Annoucement
         return $this->avatar;
     }
 
-    public function setAvatar(string $avatar): void
-    {
-        $this->avatar = $avatar;
-    }
-
     public function getUsername(): string
     {
         return $this->username;
-    }
-
-    public function setUsername(string $username): void
-    {
-        $this->username = $username;
     }
 
     public function getDate(): string
@@ -50,19 +42,9 @@ class Annoucement
         return $this->date;
     }
 
-    public function setDate(string $date): void
-    {
-        $this->date = $date;
-    }
-
     public function getTime(): string
     {
         return $this->time;
-    }
-
-    public function setTime(string $time): void
-    {
-        $this->time = $time;
     }
 
     public function getGameName(): string
@@ -70,19 +52,9 @@ class Annoucement
         return $this->gameName;
     }
 
-    public function setGameName(string $gameName): void
-    {
-        $this->gameName = $gameName;
-    }
-
     public function getDescription(): string
     {
         return $this->description;
-    }
-
-    public function setDescription(string $description): void
-    {
-        $this->description = $description;
     }
 
     public function getId(): int
@@ -90,18 +62,13 @@ class Annoucement
         return $this->id;
     }
 
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
     public function getUserId(): int
     {
         return $this->userId;
     }
 
-    public function setUserId(int $userId): void
+    public function getGameUsername(): string
     {
-        $this->userId = $userId;
+        return $this->gameUserName;
     }
 }

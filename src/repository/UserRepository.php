@@ -28,7 +28,7 @@ class UserRepository extends Repository
         $statement = $this->database->connect()->prepare("
             SELECT * FROM public.users WHERE email = :email;
         ");
-        $statement->bindParam(':email', $email, PDO::PARAM_STR);
+        $statement->bindParam(':email', $email);
         $statement->execute();
 
         $user= $statement->fetch(PDO::FETCH_ASSOC);
@@ -44,10 +44,12 @@ class UserRepository extends Repository
     }
     public function getProfileByEmail(string $email): ?UserProfile{
         $statement = $this->database->connect()->prepare("
-            SELECT email, username, joined, favourite_game, avatar, u.user_id FROM public.users u JOIN public.profiles p 
-                ON u.profile_id=p.profile_id WHERE u.email = :email
+            SELECT email, username, joined, favourite_game, avatar, u.user_id, r.role_name FROM public.users u 
+                JOIN public.profiles p ON u.profile_id=p.profile_id
+                JOIN roles r ON u.role_id=r.role_id
+            WHERE u.email = :email
         ");
-        $statement->bindParam(':email', $email, PDO::PARAM_STR);
+        $statement->bindParam(':email', $email);
         $statement->execute();
 
         $profile= $statement->fetch(PDO::FETCH_ASSOC);
@@ -61,14 +63,17 @@ class UserRepository extends Repository
             $profile['joined'],
             $profile['favourite_game'],
             $profile['avatar'],
-            $profile['user_id']
+            $profile['user_id'],
+            $profile['role_name']
         );
     }
 
     public function getProfileById(int $id): ?UserProfile{
         $statement = $this->database->connect()->prepare("
-            SELECT email, username, joined, favourite_game, avatar, user_id FROM public.users u JOIN public.profiles p 
-                ON u.profile_id=p.profile_id WHERE u.user_id = :id
+            SELECT email, username, joined, favourite_game, avatar, user_id, role_name FROM public.users u 
+                JOIN public.profiles p ON u.profile_id=p.profile_id 
+                JOIN roles r ON u.role_id=r.role_id
+            WHERE u.user_id = :id
         ");
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
         $statement->execute();
@@ -84,7 +89,8 @@ class UserRepository extends Repository
             $profile['joined'],
             $profile['favourite_game'],
             $profile['avatar'],
-            $profile['user_id']
+            $profile['user_id'],
+            $profile['role_name']
         );
     }
 
@@ -110,7 +116,7 @@ class UserRepository extends Repository
             SELECT * FROM public.profiles WHERE username = :username;
         ");
         $username= $profile->getUsername();
-        $statement->bindParam(':username', $username, PDO::PARAM_STR);
+        $statement->bindParam(':username', $username);
         $statement->execute();
         $newprofile= $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -133,10 +139,10 @@ class UserRepository extends Repository
         $stmt = $this->database->connect()->prepare("
             UPDATE profiles SET username=:username, favourite_game=:favouriteGame, avatar=:avatar WHERE profile_id=:profile_id;
         ");
-        $stmt->bindParam(":username", $username, PDO::PARAM_STR);
-        $stmt->bindParam(":favouriteGame", $favouriteGame, PDO::PARAM_STR);
-        $stmt->bindParam(":avatar", $avatar, PDO::PARAM_STR);
-        $stmt->bindParam(":profile_id", $profile_id, PDO::PARAM_STR);
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":favouriteGame", $favouriteGame);
+        $stmt->bindParam(":avatar", $avatar);
+        $stmt->bindParam(":profile_id", $profile_id);
         $stmt->execute();
     }
 }

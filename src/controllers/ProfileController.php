@@ -20,7 +20,6 @@ class ProfileController extends AppController
     public function user($id){
         $this->userCookieVerification();
         if(is_numeric($id)){
-            $idInt = intval($id);
             $profile = $this->userRep->getProfileById($id);
             $ratings = $this->ratingsRep->getRatings($id);
             $anns = $this->annRep->getAnnsById($id);

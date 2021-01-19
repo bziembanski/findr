@@ -21,7 +21,11 @@
 <div class="notifications-pop-up" tabindex="-1"></div>
 <template id="notification-template">
     <div class="notification">
-        <img src="/public/upload/">
+        <div class="notification-wrapper">
+            <a><img></a>
+            <i class="fas fa-check"></i>
+            <i class="fas fa-times"></i>
+        </div>
         <p class="notification-content"></p>
     </div>
 </template>

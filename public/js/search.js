@@ -1,6 +1,14 @@
 const searchInput = document.querySelector('input[name="search"]');
 const annsContainer = document.querySelector(".announcements")
 const searchButton = document.querySelector('#search-button');
+const filters = document.querySelectorAll(".fa-caret-square-down")
+
+filters.forEach(dropdown=>{
+    dropdown.addEventListener("click", function (){
+        console.log("click");
+        dropdown.parentElement.parentElement.classList.toggle("opened");
+    })
+});
 
 function searchAction(){
     const data = {search: searchInput.value};

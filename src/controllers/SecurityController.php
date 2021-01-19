@@ -39,6 +39,7 @@ class SecurityController extends AppController{
         setcookie("user", $user->getId(), time()+3600);
         setcookie("username", $profile->getUsername(), time()+3600);
         setcookie("avatar", $profile->getAvatar(), time()+3600);
+        setcookie("role", $profile->getRole(), time()+3600);
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/home");
     }
@@ -51,13 +52,12 @@ class SecurityController extends AppController{
         $email = $_POST["email"];
         $password = $_POST["password"];
         $password2 = $_POST["password-repeate"];
-        $userRep = new UserRepository();
 
         if($password !== $password2){
             return $this->render('login', ['register_messages'=>['Provide proper password']]);
         }
         $user = new User(0, $email, $this->hashPassword($password));
-        $profile = new UserProfile($email, $username, null,null,null,0);
+        $profile = new UserProfile($email, $username, null,null,null,0, "");
         $this->userRep->addUserProfile($user, $profile);
         return $this->render('login', ['register_messages' => ['You\'ve been succesfully registrated!']]);
     }

@@ -14,7 +14,20 @@ class NotificationController extends AppController
         $this->notificationRep = new NotificationRepository();
     }
 
-    public function sendInvite(){
+    public function deleteNotif(){
+        $this->userCookieVerification();
+        $contentType = isset($_SERVER['CONTENT_TYPE']) ? trim($_SERVER['CONTENT_TYPE']) : "";
+        if($contentType === 'application/json'){
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content, true);
+            $data = $this->notificationRep->deleteNotif($decoded["notif_id"], $decoded["id"]);
+            header('Content-type: application/json');
+            http_response_code(200);
+            echo json_encode($data);
+        }
+    }
+
+    public function sendNotif(){
         $this->userCookieVerification();
         $contentType = isset($_SERVER['CONTENT_TYPE']) ? trim($_SERVER['CONTENT_TYPE']) : "";
         if($contentType === 'application/json'){
