@@ -25,7 +25,7 @@
 
 <template id="rating-template">
     <div class="ann-rating">
-        <img>
+        <a><img></a>
         <i class="far"></i>
         <p class="ann-rating-date">date</p>
     </div>

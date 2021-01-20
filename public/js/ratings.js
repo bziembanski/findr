@@ -50,7 +50,7 @@ function createRating(rating) {
     const avatar = clone.querySelector("img");
     const sign = clone.querySelector("i");
     const date = clone.querySelector(".ann-rating-date");
-
+    avatar.parentElement.href=`/user/${rating.user_id}`
     avatar.src=`/public/upload/${rating.avatar}`;
     sign.classList.add(rating.rating_type ? "fa-thumbs-up" : "fa-thumbs-down");
     date.innerHTML = rating.rated_on.split(" ")[0];

@@ -1,15 +1,17 @@
 body{
     margin: 0;
     font: normal 11px sans-serif;
+    background: #202020;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 .fas, .fa{
     color: #D2D2D2
 }
 .container{
-    width: 100vw;
-    height: 100vh;
-    background: #202020;
-    overflow: hidden;
+    width:100%;
+    height: 100%;
 }
 nav header {
     background: #880000;
@@ -108,10 +110,9 @@ nav header {
 }
 main{
     width: 100%;
-    max-height: 91vh;
+    height: 91vh;
     margin-top: 9vh;
     display: flex;
-    min-height: 91vh;
 }
 main.search-main{
     flex-direction: row;
@@ -121,7 +122,6 @@ main.home-main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    justify-items: center;
     height: 91vh;
     color:#909090;
 }
@@ -151,7 +151,6 @@ main.home-main{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-items: flex-start;
     justify-content: space-between;
     margin-bottom:10em;
 }
@@ -163,20 +162,14 @@ main.home-main{
     font-size: 3em;
     line-height: 1.5em;
 }
-.home{
-    width:50%;
-}
-
 
 section.search-filters{
     width:20%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-items: center;
+    overflow-y: scroll;
     padding:2em;
     background: #300000;
-    overflow-y: scroll;
 }
 .search-filters:last-child{
     margin-bottom: 0;
@@ -185,7 +178,6 @@ section.search-filters{
     color: #D4D4D4;
     font-size: 1.5em;
     margin-bottom: 1.5em;
-    
 }
 
 .search-bar {
@@ -302,7 +294,6 @@ section.announcements{
     padding: 2em;
     width:80%;
     overflow-y: auto;
-    min-height: 100%;
 }
 .announcement{
     background: #00000080;
@@ -312,8 +303,7 @@ section.announcements{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    justify-content: space-around;
-    align-self: stretch;
+    justify-content: space-between;
     text-decoration: none;
 }
 .announcement img{
@@ -440,7 +430,6 @@ section.announcements{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-items: center;
     justify-content: space-between;
     background: #00000080;
     border-radius: 3em;
@@ -452,7 +441,6 @@ section.announcements{
     width:20%;
     flex-direction: column;
     align-items: center;
-    justify-items: flex-start;
     border-right: 1px solid #FFFFFF80;
     overflow: auto;
 }
@@ -480,10 +468,9 @@ section.announcements{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 .ann-user-profile-info{
-    margin-top:4.5em;
     width:85%;
     display: flex;
     flex-direction: row;
@@ -501,7 +488,6 @@ section.announcements{
     display: flex;
     flex-direction: column;
     text-align: center;
-    //margin-left:5em;
 }
 .ann-username{
     font-size:2.5em;
@@ -533,7 +519,6 @@ section.announcements{
 .ann-invite-button{
     width:85%;
     text-align: left;
-    margin-bottom:10em;
 }
 #invite-button{
     border:none;
@@ -554,9 +539,9 @@ section.announcements{
     width:30%;
     flex-direction: column;
     align-items: center;
-    justify-items: flex-start;
+    justify-content: flex-start;
     border-left: 1px solid #FFFFFF80;
-    overflow: auto;
+    overflow-y: scroll;
     direction: rtl;
 }
 .profile-ratings-section{
@@ -625,7 +610,6 @@ section.announcements{
     height: 91vh;
     align-items: center;
     justify-content: space-between;
-    overflow-y: auto;
     color: #d4d4d4;
     width:40%;
     margin:auto;
@@ -648,16 +632,21 @@ section.announcements{
 }
 .profile-main{
     flex-direction: row;
-    overflow-y: auto;
 }
 .profile-content{
-    width:75%;
+    width:70%;
     height: 100%;
     border-right: 1px solid #ffffff80;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
+    overflow-y: scroll;
+    direction: rtl;
+}
+
+.profile-content *{
+    direction: ltr;
 }
 
 .profile-user-profile-info{
