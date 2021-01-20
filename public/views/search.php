@@ -12,7 +12,10 @@
         </nav>
         <main class="search-main">
             <section class="search-filters">
-                <h2>filters</h2>
+                <div class="search-filters-header">
+                    <h2>filters</h2>
+                    <i class="fas fa-times close-filters"></i>
+                </div>
                 <div class="search-bar">
                     <input type="text" name="search" placeholder="search for a game" value="<?=$search?>">
                     <button id="search-button"><i class="fas fa-search"></i></button>
@@ -151,6 +154,7 @@
                 </div>
 
             </section>
+            <i class="show-search-filters fas fa-filter"></i>
             <section class="announcements">
                 <?php foreach ($anns as $ann): ?>
                 <a href="/ann/<?= $ann->getId() ?>" class="announcement">

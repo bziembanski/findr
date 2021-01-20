@@ -3,6 +3,7 @@
 <head>
     <?php include("head.php")?>
     <script type="text/javascript" src="/public/js/ratings.js" defer></script>
+    <script type="text/javascript" src="/public/js/profile.js" defer></script>
     <title>PROFILE PAGE</title>
 </head>
 <body>
@@ -12,6 +13,7 @@
         </nav>
         <main class="profile-main">
             <section class="profile-content">
+                <i class="fas fa-percentage open-profile-rating"></i>
                 <div class="profile-user-profile-info">
                     <img src="/public/upload/<?= $profile->getAvatar()?>">
                     <div class="profile-username-date-hour">
@@ -39,6 +41,7 @@
                 </div>
             </section>
             <section class="profile-ratings-section">
+                <i class="fas fa-times close-ratings"></i>
                 <? include ("ratings.php")?>
             </section>
         </main>

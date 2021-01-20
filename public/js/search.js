@@ -2,6 +2,16 @@ const searchInput = document.querySelector('input[name="search"]');
 const annsContainer = document.querySelector(".announcements")
 const searchButton = document.querySelector('#search-button');
 const filters = document.querySelectorAll(".search-filter")
+const filterButton = document.querySelector(".show-search-filters");
+const closeSearchFiltersButton = document.querySelector(".close-filters");
+
+filterButton.addEventListener("click", function () {
+    document.querySelector(".search-filters").classList.add("search-filters-visible");
+})
+
+closeSearchFiltersButton.addEventListener("click", function () {
+    document.querySelector(".search-filters").classList.remove("search-filters-visible");
+})
 
 filters.forEach(dropdown=>{
     dropdown.addEventListener("click", function (){

@@ -1,8 +1,24 @@
-const inviteButton = document.querySelector("#invite-button");
-const annId = inviteButton.getAttribute("value");
+const inviteButton = document.querySelector(".ann-invite-button");
+const annId = document.querySelector("#invite-button").getAttribute("value");
 const notifier = parseInt(getUserCookie());
 const notified = parseInt(document.querySelector(".profile-ratings-section-heading").getAttribute("id"));
 const deleteButton = document.querySelector(".fa-trash");
+const showAnnFilters = document.querySelector(".show-ann-filters");
+const closeAnnFilters = document.querySelector(".close-ann-filters");
+
+showAnnFilters.addEventListener("click", function (){
+    document.querySelector(".ann-filters").classList.toggle("ann-filters-visible");
+    document.querySelector(".ann-content").classList.toggle("ann-content-ratings-invisible");
+    document.querySelector(".ann-ratings-section").classList.toggle("ann-content-ratings-invisible");
+
+});
+
+closeAnnFilters.addEventListener("click", function (){
+    document.querySelector(".ann-filters").classList.toggle("ann-filters-visible");
+    document.querySelector(".ann-content").classList.toggle("ann-content-ratings-invisible");
+    document.querySelector(".ann-ratings-section").classList.toggle("ann-content-ratings-invisible");
+
+})
 
 function deleteAnn() {
     const data = {ann_id: parseInt(annId)};
