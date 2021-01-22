@@ -1286,6 +1286,7 @@ section.announcements{
     .notifications-pop-up{
         width:90%;
         right:1em;
+        border-radius: 4.5em;
     }
     .notification{
         font-size: 3.5em;

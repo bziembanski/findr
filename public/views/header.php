@@ -39,3 +39,4 @@
         <p class="notification-content"></p>
     </div>
 </template>
+<? include("toast.php");

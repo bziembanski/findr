@@ -1,9 +1,10 @@
 const hamburger = document.querySelector(".fa-bars");
 const closeNav = document.querySelector(".close-nav");
+const popUpNav =  document.querySelector(".pop-up-nav");
 
 hamburger.addEventListener("click", function (){
-    document.querySelector(".pop-up-nav").classList.add("nav-opened");
+    popUpNav.classList.add("nav-opened");
 })
 closeNav.addEventListener("click", function (){
-    document.querySelector(".pop-up-nav").classList.remove("nav-opened");
+    popUpNav.classList.remove("nav-opened");
 })

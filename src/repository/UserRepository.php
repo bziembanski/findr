@@ -44,10 +44,7 @@ class UserRepository extends Repository
     }
     public function getProfileByEmail(string $email): ?UserProfile{
         $statement = $this->database->connect()->prepare("
-            SELECT email, username, joined, favourite_game, avatar, u.user_id, r.role_name FROM public.users u 
-                JOIN public.profiles p ON u.profile_id=p.profile_id
-                JOIN roles r ON u.role_id=r.role_id
-            WHERE u.email = :email
+            SELECT * FROM user_profile WHERE user_profile.email = :email
         ");
         $statement->bindParam(':email', $email);
         $statement->execute();
@@ -70,10 +67,7 @@ class UserRepository extends Repository
 
     public function getProfileById(int $id): ?UserProfile{
         $statement = $this->database->connect()->prepare("
-            SELECT email, username, joined, favourite_game, avatar, user_id, role_name FROM public.users u 
-                JOIN public.profiles p ON u.profile_id=p.profile_id 
-                JOIN roles r ON u.role_id=r.role_id
-            WHERE u.user_id = :id
+           SELECT * FROM user_profile WHERE user_profile.user_id = :id
         ");
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
         $statement->execute();
@@ -104,13 +98,12 @@ class UserRepository extends Repository
             $user->getPassword()
         ]);
         $statement = $this->database->connect()->prepare("
-            INSERT INTO public.profiles (favourite_game, username, avatar)
-            VALUES (?, ?, ?)
+            INSERT INTO public.profiles (favourite_game, username)
+            VALUES (?, ?)
         ");
         $statement->execute([
             "",
-            $profile->getUsername(),
-            ""
+            $profile->getUsername()
         ]);
         $statement = $this->database->connect()->prepare("
             SELECT * FROM public.profiles WHERE username = :username;

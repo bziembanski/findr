@@ -19,18 +19,15 @@ function rate(type){
 
     if(user_id!==cookieUser){
         const data = {type: type, rated_who: parseInt(user_id), rated_by: parseInt(cookieUser)};
-        fetch("/rate", {
-            method: "POST",
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then(function (response) {
-            return response.json();
-        }).then(function (ratings){
-            ratingsContainer.innerHTML="";
-            loadRatings(ratings);
-        });
+        fetchWrapped(
+            "/rate",
+            data,
+            ratings=>{
+                ratingsContainer.innerHTML="";
+                loadRatings(ratings);
+                showToast("User rated successfully!");
+            }
+        )
     }
 }
 

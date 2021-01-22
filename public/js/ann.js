@@ -5,44 +5,44 @@ const notified = parseInt(document.querySelector(".profile-ratings-section-headi
 const deleteButton = document.querySelector(".fa-trash");
 const showAnnFilters = document.querySelector(".show-ann-filters");
 const closeAnnFilters = document.querySelector(".close-ann-filters");
+const annFilters = document.querySelector(".ann-filters");
+const annContent = document.querySelector(".ann-content");
+const annRatingsSection =  document.querySelector(".ann-ratings-section");
 
 showAnnFilters.addEventListener("click", function (){
-    document.querySelector(".ann-filters").classList.toggle("ann-filters-visible");
-    document.querySelector(".ann-content").classList.toggle("ann-content-ratings-invisible");
-    document.querySelector(".ann-ratings-section").classList.toggle("ann-content-ratings-invisible");
+    annFilters.classList.toggle("ann-filters-visible");
+    annContent.classList.toggle("ann-content-ratings-invisible");
+    annRatingsSection.classList.toggle("ann-content-ratings-invisible");
 
 });
 
 closeAnnFilters.addEventListener("click", function (){
-    document.querySelector(".ann-filters").classList.toggle("ann-filters-visible");
-    document.querySelector(".ann-content").classList.toggle("ann-content-ratings-invisible");
-    document.querySelector(".ann-ratings-section").classList.toggle("ann-content-ratings-invisible");
+    annFilters.classList.toggle("ann-filters-visible");
+    annContent.classList.toggle("ann-content-ratings-invisible");
+    annRatingsSection.classList.toggle("ann-content-ratings-invisible");
 
 })
 
 function deleteAnn() {
     const data = {ann_id: parseInt(annId)};
-    fetch("/deleteAnn",{
-        method: "POST",
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }).then(function (response) {
-        window.location.href="/search"
-    })
+    fetchWrapped(
+        "/deleteAnn",
+        data,
+        (response)=> window.location.href="/search"
+    );
 }
 
 function sendInvite(){
     if(notified!==notifier){
         const data = {notified_id: notified, notifier_id: notifier, notification_type: "question", ann_id: annId};
-        fetch("/sendNotif",{
-            method: "POST",
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then(function (response) {})
+        fetchWrapped(
+            "/sendNotif",
+            data,
+            undefined,
+            response=>{
+                showToast("User invited successfully!");
+            }
+        );
     }
 
 }
