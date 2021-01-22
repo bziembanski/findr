@@ -42,8 +42,8 @@
 
 @media only screen and (max-device-width: 1000px){
     #snackbar{
-        min-width:20em;
-        margin-left: -11em;
+        min-width:16em;
+        margin-left: -9em;
         top:unset;
         bottom: 10vh;
         font-size: 4em;
