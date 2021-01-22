@@ -4,7 +4,10 @@
     function isUp($rating){
         return $rating->isRatingType();
     }
-    $up = round((count(array_filter($ratings, "isUp"))/count($ratings))*100);
+    if(count($ratings)==0)
+        $up = 0;
+    else
+        $up = round((count(array_filter($ratings, "isUp"))/count($ratings))*100);
     ?>
     <i class="far fa-thumbs-up">
         <span id="ratings-up-percent"><?=$up?>%</span>

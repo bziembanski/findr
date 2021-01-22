@@ -14,6 +14,7 @@
         <main class="ann-main">
             <div class="ann-main-container">
                 <section class="ann-filters">
+                    <i class="fas fa-times close-ann-filters"></i>
                     <div class="ann-filter">
                         <p class="ann-search-filter">search filter:</p>
                         <p class="ann-search-information">information</p>
@@ -24,6 +25,7 @@
                     </div>
                 </section>
                 <section class="ann-content">
+                    <i class="show-ann-filters fas fa-filter"></i>
                     <div class="ann-user-profile-info">
                         <img src="/public/upload/<?=$ann->getAvatar()?>">
                         <div class="ann-username-date-hour">
@@ -38,7 +40,10 @@
                         <div class="ann-desc"><?=$ann->getDescription()?></div>
                     </div>
                     <div class="ann-invite-button">
-                        <button id="invite-button" value="<?=$ann->getId()?>">invite me</button>
+                        <button id="invite-button" value="<?=$ann->getId()?>">
+                            <span id="invite-text">invite me</span>
+                            <span id="invite-icon"><i class="fas fa-user-plus"></i></span>
+                        </button>
                     </div>
                 </section>
                 <section class="ann-ratings-section">

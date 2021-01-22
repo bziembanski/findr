@@ -11,18 +11,14 @@ function loadingAnimation(){
 
 function getNotifications() {
     const data = {notified_id: notified_id};
-    fetch("/getNotifications",{
-        method: "POST",
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }).then(function (response) {
-        return response.json();
-    }).then(function(notifications){
-        loadNotifications(notifications);
-        notificationsContainer.removeChild(notificationsContainer.querySelector("img"))
-    });
+    fetchWrapped(
+        "/getNotifications",
+        data,
+        (notifications=>{
+            loadNotifications(notifications);
+            notificationsContainer.removeChild(notificationsContainer.querySelector("img"))
+        })
+    );
 }
 
 bellButton.addEventListener("click", function () {
@@ -60,25 +56,24 @@ function createNotification(notification){
             const confirm = window.confirm("Do you really want to accept the invitation?")
             if (confirm){
                 const data = {notified_id: notification["notifier_id"], notifier_id: notified_id, notification_type: "answer", ann_id: notification["ann_id"]};
-                fetch("/sendNotif",{
-                    method: "POST",
-                    headers:{
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                }).then(function (response) {
-                    loadingAnimation();
-                    const data = {id: notified_id, notif_id: notification["notif_id"]}
-                    fetch("/deleteNotif",{
-                        method: "POST",
-                        headers:{
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(data)
-                    }).then(function (response) {
-                        getNotifications();
-                    })
-                })
+                fetchWrapped(
+                    "/sendNotif",
+                    data,
+                    undefined,
+                    response=>{
+                        loadingAnimation();
+                        showToast("Invite accepted successfully!");
+                        const data = {id: notified_id, notif_id: notification["notif_id"]};
+                        fetchWrapped(
+                            "/deleteNotif",
+                            data,
+                            undefined,
+                            response=>{
+                                getNotifications();
+                            }
+                        );
+                    }
+                );
             }
         })
     }
@@ -86,19 +81,19 @@ function createNotification(notification){
         content.innerHTML=`User ${notification["username"]} confirmed your invitation to play <span class="notification-gamename">${notification["game_name"]}</span> with them: <span class="notification-gamename">${notification["message_val"]}</span>.`;
         confirmButton.remove();
     }
-    const deleteAnn = clone.querySelector(".fa-times");
-    deleteAnn.addEventListener("click", function () {
+    const deleteNotif = clone.querySelector(".fa-times");
+    deleteNotif.addEventListener("click", function () {
         loadingAnimation();
         const data = {id: notified_id, notif_id: notification["notif_id"]}
-        fetch("/deleteNotif",{
-            method: "POST",
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then(function (response) {
-            getNotifications();
-        })
+        fetchWrapped(
+            "/deleteNotif",
+            data,
+            undefined,
+            response=>{
+                getNotifications();
+                showToast("Notification deleted successfully!");
+            }
+        );
     })
 
     const notificationDiv = clone.querySelector(".notification");

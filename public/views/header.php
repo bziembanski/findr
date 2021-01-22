@@ -1,5 +1,6 @@
 <header>
     <div class="logo-nav-header">
+        <i class="fas fa-bars"></i>
         <img id="logo-header" src="/public/img/logo.svg">
         <ul>
             <li><a href="/home">home</a></li>
@@ -16,6 +17,15 @@
         </div>
         <a href="/logout" class="nav-logout">logout</a>
     </div>
+    <div class="pop-up-nav">
+        <i class="fas fa-times close-nav"></i>
+        <ul>
+            <li><a href="/home">home</a></li>
+            <li><a href="/search">search</a></li>
+            <li><a href="/profile">profile</a></li>
+            <li><a href="/logout">logout</a></li>
+        </ul>
+    </div>
 
 </header>
 <div class="notifications-pop-up" tabindex="-1"></div>
@@ -29,3 +39,4 @@
         <p class="notification-content"></p>
     </div>
 </template>
+<? include("toast.php");

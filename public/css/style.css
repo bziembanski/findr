@@ -16,6 +16,7 @@ body{
 nav header {
     background: #880000;
     position: fixed;
+    z-index: 11;
     top:0;
     left:0;
     width: 100vw;
@@ -225,7 +226,7 @@ section.search-filters{
     border-radius: 1.3em;
     display: flex;
     flex-direction: column;
-    max-height: 3em;
+    max-height: 9em;
     transition-duration: 0.5s;
 }
 .filter-container .search-filter{
@@ -235,6 +236,17 @@ section.search-filters{
     align-items: flex-start;
     justify-content: space-between;
 }
+.search-filters-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-filters-header i{
+    display: none;
+}
+
 .search-filter > *{
     margin-top: 1em;
 }
@@ -533,6 +545,12 @@ section.announcements{
 #invite-button:active{
     padding-top:7px;
 }
+#invite-text{
+    display: unset;
+}
+#invite-icon{
+    display: none;
+}
 .ann-ratings-section, .profile-ratings-section{
     display: flex;
     height: 100%;
@@ -716,7 +734,7 @@ section.announcements{
     right: 10em;
     background-color: #101010;
     border-radius: 1.5em;
-    z-index: 999;
+    z-index: 11;
     display: none;
     overflow: auto;
     box-shadow: 0 0.5em 0.9em #050505;
@@ -772,6 +790,10 @@ section.announcements{
     border-radius: 0.7em;
 }
 
+.fa-filter, .show-ann-filters, .close-ann-filters, .pop-up-nav, .fa-bars, .open-profile-rating, .close-ratings{
+    display: none!important;
+}
+
 
 @media only screen and (max-device-width: 1000px){
     .messages{
@@ -823,10 +845,6 @@ section.announcements{
     .forms-container button{
         width:82%;
     }
-    .home-main{
-        height: 100%!important;
-        justify-content: flex-start!important;
-    }
     .home-main .home-heading{
         margin-top:10em;
         flex-direction: column;
@@ -856,5 +874,430 @@ section.announcements{
         padding-right: 2em;
         padding-left:2em;
         font-size: 3.5em;
+    }
+
+    .search-main .announcements{
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: 100em;
+        padding:13em;
+        grid-gap:10em;
+    }
+
+    .fa-filter{
+        display: unset!important;
+        position: fixed;
+        z-index: 9;
+        top:12vh;
+        left:4vw;
+        font-size: 6em;
+    }
+
+    .search-main .search-filters{
+        position: fixed;
+        z-index: 10;
+        width: 100vw;
+        height: 91vh;
+        left:-100%;
+        top:9vh;
+        padding: 0;
+        overflow-x: hidden;
+        transition-duration: 0.5s;
+    }
+
+    .search-filters h2{
+        font-size: 5em;
+        margin:1em;
+    }
+
+    .search-bar{
+        height: 9.5em;
+        border-radius: 5em;
+        margin:5em;
+    }
+
+    .search-bar button{
+        font-size: 4em;
+        padding: 0.6em 0.5em 0.5em 0.5em;
+    }
+    .search-bar input{
+        font-size: 4em;
+    }
+
+    .filter-container{
+        margin:5em;
+        border-radius: 3em;
+    }
+
+    .search-filter{
+        font-size: 3em;
+    }
+    .search-filter p{
+        margin-left: 1.3em;
+    }
+    .filters .filter{
+        margin-top: 1.5em;
+        margin-left: 6em;
+    }
+    .filters:last-child{
+        margin-bottom: 2em;
+    }
+    .filter p{
+        font-size: 2.5em;
+    }
+    .filter input{
+        height: 2.5em;
+        width: 2.5em;
+        margin-right: 2em;
+    }
+
+    .search-filters-header i{
+        display: unset;
+        font-size: 7em;
+        margin-right: 1em;
+    }
+
+    .search-filters-visible{
+        left:0!important;
+        transition-duration: 0.5s;
+    }
+    .announcement{
+        border-radius: 5em;
+        padding: 9em;
+    }
+    .announcement img{
+        height: 27em;
+        width: 27em;
+        border-radius: 4em;
+    }
+
+    .announcement-username, .announcement-game-name{
+        font-size: 5em!important;
+    }
+    .announcement-desc{
+        font-size: 4.3em!important;
+    }
+    .announcement-date, .announcement-hour{
+        font-size: 4.5em!important;
+    }
+
+    .ann-main{
+        justify-content: flex-start;
+        overflow-y: auto;
+    }
+
+    .ann-main-container{
+        flex-direction: column;
+        height: unset;
+        margin-top: 4em;
+        border-radius: 5.5em;
+    }
+
+    .ann-filters{
+        display: none;
+    }
+
+    .ann-content{
+        width: 100%;
+        height: unset;
+        margin-top: 5.5em;
+    }
+
+    .ann-user-profile-info{
+        flex-direction: column;
+    }
+    .ann-user-profile-info img{
+        height: 35em;
+        width: 35em;
+        border-radius: 3.5em;
+        margin-bottom: 3.5em;
+    }
+
+    .ann-username{
+        font-size: 6em!important;
+    }
+
+    .ann-date{
+        border-width: 3px;
+    }
+
+    .ann-date, .ann-hour{
+        font-size: 5em;
+    }
+
+    .ann-username-date-hour .fa-trash{
+        font-size: 4em;
+        margin-top: 0.5em;
+    }
+
+    .ann-game-name{
+        font-size: 5.5em;
+        margin-top: 1em;
+        margin-bottom: 0.8em;
+    }
+    .ann-desc{
+        font-size: 4.5em;
+        margin-bottom: 1em;
+    }
+
+    .ann-invite-button{
+        width:15em;
+        height: 15em;
+        position: fixed;
+        bottom: 10vh;
+        right: 7vw;
+        z-index: 9;
+    }
+    #invite-button{
+        width:100%;
+        height: 100%;
+        border-radius: 100%;
+        font-size: 5em;
+    }
+    #invite-text{
+        display: none;
+    }
+    #invite-icon{
+        display: unset;
+    }
+
+    .ann-ratings-section{
+        border-left: none;
+        border-top: 3px solid #ffffff80;
+        width: 100%;
+        height: unset;
+        overflow-y: unset;
+    }
+
+    .profile-ratings-section-heading{
+        font-size: 4.6em;
+        text-align: center;
+        margin-top: 1em;
+    }
+
+    .ratings{
+        width: 90%;
+        margin-bottom:3em;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .ann-rating{
+        width:100%;
+        height: unset;
+        margin-bottom: 4em;
+    }
+
+    .ann-rating i{
+        font-size: 4.5em;
+    }
+
+    .ann-rating a img{
+        width:15em;
+        height: 15em;
+        border-radius: 1em;
+    }
+
+    .ann-rating-date{
+        font-size: 4em;
+    }
+
+    .show-ann-filters{
+        position: relative!important;
+        top:-0.3em;
+        left:-38vw;
+    }
+
+    .ann-filters-visible{
+        display: flex;
+        width: 100%;
+        height: 85vh;
+        border-right: none;
+        padding-top: 3em;
+    }
+
+    .ann-search-filter{
+        font-size: 4em;
+    }
+
+    .ann-search-information{
+        font-size: 4.2em;
+    }
+
+    .ann-content-ratings-invisible{
+        display: none;
+    }
+
+    .close-ann-filters{
+        display: unset!important;
+        align-self: flex-start;
+        font-size: 6em;
+        margin-left:0.5em;
+    }
+
+    .profile-ratings-section{
+        display: none;
+    }
+
+    .profile-main{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-content{
+        width:100%;
+        border-right: none;
+    }
+
+    .profile-user-profile-info{
+        flex-direction: column;
+    }
+
+    .profile-user-profile-info img{
+        width: 35em;
+        height: 35em;
+        border-right: 3em;
+    }
+
+    .profile-username-date-hour{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-date span, .profile-favourite span{
+        font-weight: bold;
+    }
+    .profile-date, .profile-favourite{
+        align-self: flex-start;
+    }
+    .profile-edit-link, .profile-date, .profile-favourite{
+        font-size: 4em;
+    }
+
+    .profile-username{
+        font-size: 6em;
+    }
+
+    .profile-anns{
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: 60em;
+        grid-gap: 5em;
+        width: 85%;
+    }
+
+    .open-profile-rating{
+        display: unset!important;
+        position: relative;
+        font-size: 9em;
+        top:0.1em;
+        right:-4.2em;
+    }
+
+    .ratings-visible{
+        display: flex;
+        height: unset;
+        width: 100%;
+    }
+
+    .close-ratings{
+        display: unset!important;
+        position: relative;
+        font-size: 9em;
+        top:0.1em;
+        right:-4.2em;
+    }
+
+    .profile-content-invisible{
+        display: none;
+    }
+
+    .logo-nav-header ul, .profile-nav-username, .nav-logout{
+        display: none;
+    }
+
+    .logo-nav-header .fa-bars{
+        margin-left:0.6em;
+    }
+    .fa-bars, .fa-bell, .fa-plus{
+        font-size: 8em!important;
+    }
+    .profile-header > * {
+        margin-right: 0.6em;
+    }
+
+    .profile-nav a img{
+        width:5em;
+        height: 5em;
+    }
+
+    .pop-up-nav{
+        width:100vw;
+        height: 100vh;
+        position: fixed;
+        top:0;
+        left: -100%;
+        background-color: #880000;
+        z-index: 100;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        transition-duration: 0.5s;
+    }
+
+    .nav-opened{
+        left:0;
+        transition-duration: 0.5s;
+    }
+
+    .close-nav{
+        align-self: flex-start;
+        font-size: 9em;
+        margin-top:0.4em;
+        margin-left: 0.4em;
+    }
+
+    .pop-up-nav ul{
+        margin-top:4em;
+        list-style-type: none;
+        font-size: 6.5em;
+        letter-spacing: 0;
+        text-align: center;
+    }
+    .pop-up-nav li{
+        margin-bottom: 1em;
+    }
+    .pop-up-nav ul li:last-of-type{
+        margin-top: 2em;
+    }
+    .pop-up-nav li a{
+        color: #D2D2D2;
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+    }
+    .pop-up-nav li a:hover{
+        text-decoration: underline;
+    }
+
+    .pop-up-nav, .fa-bars{
+        display:unset!important;
+    }
+
+    .notifications-pop-up{
+        width:90%;
+        right:1em;
+        border-radius: 4.5em;
+    }
+    .notification{
+        font-size: 3.5em;
+    }
+    .notification img{
+        width: 5em;
+        height: 5em;
+        border-radius: 0.9em;
+    }
+    .notifications-pop-up > img{
+        height: unset;
+        width: 30%;
     }
 }
