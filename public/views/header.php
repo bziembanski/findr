@@ -12,7 +12,7 @@
         <i class="fas fa-bell"></i>
         <a href="/addAnn" class="fas fa-plus"></a>
         <div class="profile-nav">
-            <a href="/profile"><span class="inline-helper"></span><img src="/public/upload/<?=$_COOKIE["avatar"]?>"></a>
+            <a href="/profile"><span class="inline-helper"></span><img src="<?=$_COOKIE["avatar"]?>"></a>
             <a href="/profile" class="profile-nav-username"><?=$_COOKIE["username"]?></a>
         </div>
         <a href="/logout" class="nav-logout">logout</a>

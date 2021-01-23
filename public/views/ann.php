@@ -27,7 +27,7 @@
                 <section class="ann-content">
                     <i class="show-ann-filters fas fa-filter"></i>
                     <div class="ann-user-profile-info">
-                        <img src="/public/upload/<?=$ann->getAvatar()?>">
+                        <img src="<?=$ann->getAvatar()?>">
                         <div class="ann-username-date-hour">
                             <a href="/user/<?=$ann->getUserId()?>" class="ann-username"><?=$ann->getUsername()?></a>
                             <div class="ann-date"><?=$ann->getDate()?></div>

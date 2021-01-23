@@ -15,7 +15,7 @@
             <section class="profile-content">
                 <i class="fas fa-percentage open-profile-rating"></i>
                 <div class="profile-user-profile-info">
-                    <img src="/public/upload/<?= $profile->getAvatar()?>">
+                    <img src="<?= $profile->getAvatar()?>">
                     <div class="profile-username-date-hour">
                         <a href="/user/<?=$profile->getUserId()?>" class="profile-username"><?= $profile->getUsername()?></a>
                         <div class="profile-date"><span>Joined:</span><?= $profile->getJoined()?></div>

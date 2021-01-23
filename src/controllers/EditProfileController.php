@@ -18,12 +18,27 @@ class EditProfileController extends AppController{
     public function editProfile(){
         $this->userCookieVerification();
         if($this->isPost() && is_uploaded_file($_FILES['avatar']['tmp_name']) && $this->validate($_FILES['avatar'])){
-            move_uploaded_file(
-                $_FILES['avatar']['tmp_name'],
-                dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['avatar']['name']
-            );
+            $fileName = $_FILES['avatar']['tmp_name'];
+            $accessToken = "dfd2dd67b87daccf974193062ec455b145afef91";
+            $handle = fopen($fileName, "r");
+            $data = fread($handle, filesize($fileName));
+            $pvars = array("image" => base64_encode($data));
+            $timeout = 30;
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_URL, "https://api.imgur.com/3/image.json");
+            curl_setopt($curl, CURLOPT_TIMEOUT, $timeout);
+            curl_setopt($curl, CURLOPT_HTTPHEADER, array("Authorization: Bearer " . $accessToken));
+            curl_setopt($curl, CURLOPT_POST, 1);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $pvars);
+            $out = curl_exec($curl);
+            curl_close($curl);
+            $pms = json_decode($out, true);
+            $fileUrl = $pms["data"]["link"];
+
             $id = intval($_COOKIE["user"]);
-            $this->userRep->editProfile($id, $_POST['username'], $_POST['favourite_game'], $_FILES['avatar']['name']);
+            $this->userRep->editProfile($id, $_POST['username'], $_POST['favourite_game'], $fileUrl);
+            setcookie("avatar", $fileUrl, time()+3600);
             $url = "http://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/profile");
         }

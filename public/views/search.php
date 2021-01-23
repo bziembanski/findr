@@ -158,7 +158,7 @@
             <section class="announcements">
                 <?php foreach ($anns as $ann): ?>
                 <a href="/ann/<?= $ann->getId() ?>" class="announcement">
-                    <img src="/public/upload/<?= $ann->getAvatar() ?>">
+                    <img src="<?= $ann->getAvatar() ?>">
                     <div class="announcement-username-date">
                         <p class="announcement-username"><?= $ann->getUsername() ?></p>
                         <p class="announcement-date"><?= $ann->getDate() ?></p>

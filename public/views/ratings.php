@@ -19,7 +19,7 @@
 <div class="ratings">
     <? foreach ($ratings as $rating): ?>
         <div class="ann-rating">
-            <a href="/user/<?=$rating->getUserId()?>"><img src="/public/upload/<?=$rating->getAvatar()?>"></a>
+            <a href="/user/<?=$rating->getUserId()?>"><img src="<?=$rating->getAvatar()?>"></a>
             <i class="far fa-thumbs-<?=$rating->isRatingType() ? 'up': 'down'?>"></i>
             <p class="ann-rating-date"><?=explode(" ", $rating->getDate())[0]?></p>
         </div>
