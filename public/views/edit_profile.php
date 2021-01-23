@@ -10,7 +10,7 @@
         <?php include("header.php")?>
     </nav>
     <main class="edit-profile-main">
-            <img src="/public/img/avatar.png">
+            <img src="<?=$user->getAvatar()?>">
             <form action="/editProfile" enctype="multipart/form-data" method="POST" class="edit-profile-inputs">
                 <div class="messages">
                     <?php

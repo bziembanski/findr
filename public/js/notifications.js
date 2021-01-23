@@ -46,7 +46,7 @@ function createNotification(notification){
     const clone = template.content.cloneNode(true);
 
     const image = clone.querySelector("img");
-    image.src=`/public/upload/${notification["avatar"]}`;
+    image.src=`${notification["avatar"]}`;
     image.parentElement.href=`/user/${notification["notifier_id"]}`
     const content = clone.querySelector(".notification-content");
     const confirmButton = clone.querySelector(".fa-check");

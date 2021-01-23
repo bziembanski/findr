@@ -57,7 +57,7 @@ function createAnn(ann) {
     const clone = template.content.cloneNode(true);
 
     const image = clone.querySelector("img");
-    image.src = `/public/upload/${ann.avatar}`;
+    image.src = `${ann.avatar}`;
     const username = clone.querySelector(".announcement-username");
     username.innerHTML = ann.username;
     const date = clone.querySelector(".announcement-date");
