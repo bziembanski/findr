@@ -629,21 +629,42 @@ section.announcements{
     align-items: center;
     justify-content: space-between;
     color: #d4d4d4;
-    width:40%;
-    margin:auto;
+    width:60%;
+    margin: 9vh auto auto;
+}
+.edit-profile-main img{
+    width:25em;
+    height: 25em;
+    object-fit: cover;
+    border-radius: 3em;
 }
 .edit-profile-inputs{
     display: flex;
     flex-direction: column;
-    margin-top: 1em;
+    justify-content: space-around;
     margin-left: 1em;
-    font-size: 1.5em;
-    width: 20em;
+    width: 50%;
+    height: 40%;
 }
 .edit-profile-username, .edit-profile-favourite, .edit-profile-avatar{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 1.5em;
+    align-items: center;
+}
+.edit-profile-inputs input, .edit-profile-inputs button{
+    border-radius: 4em;
+    border:none;
+    padding:0.7em
+}
+
+.edit-profile-inputs input{
+    width:55%;
+}
+.edit-profile-inputs button{
+    color:white;
+    background-color: #800000;
 }
 .none{
     display: none!important;
@@ -794,6 +815,55 @@ section.announcements{
     display: none!important;
 }
 
+.add-ann-main{
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4.5em;
+    color: #d2d2d2;
+}
+.add-ann-inputs{
+    display: flex;
+    width:70%;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 2em;
+}
+.add-ann-inputs h1{
+    font-size: 2.5em;
+}
+.add-ann-game-name, .add-ann-game-username, .add-ann-desc{
+    width:60%;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.add-ann-inputs input{
+    height: 1em;
+    border-radius: 5em;
+}
+.add-ann-inputs input, .add-ann-inputs textarea{
+    width: 65%;
+    border:none;
+    padding:1em;
+}
+.add-ann-inputs textarea{
+    padding:1.5em;
+    border-radius: 1.5em;
+    min-width: 63%;
+    max-width: 63%;
+    min-height: 3.5em;
+    max-height: 3.5em;
+}
+.add-ann-inputs button{
+    width:60%;
+    border:none;
+    background-color: #800000;
+    color:white;
+    padding:0.6em;
+    border-radius: 4em;
+}
 
 @media only screen and (max-device-width: 1000px){
     .messages{
@@ -1299,5 +1369,77 @@ section.announcements{
     .notifications-pop-up > img{
         height: unset;
         width: 30%;
+    }
+
+    .edit-profile-main{
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+    }
+    .edit-profile-main img{
+        width:38em;
+        height: 38em;
+        margin-top: 10em;
+    }
+    .edit-profile-inputs{
+        font-size: 2.5em;
+        width:90%;
+        grid-gap: 1em;
+    }
+    .edit-profile-inputs input, .edit-profile-inputs button{
+        border-radius: 4em;
+        border:none;
+        padding:0.6em;
+        height:1.7em;
+        font-size: 0.9em;
+    }
+
+    .edit-profile-inputs input{
+        width:55%;
+    }
+    .edit-profile-inputs button{
+        font-size: 1.2em;
+        height: 2.5em;
+        width:100%;
+    }
+
+    .add-ann-main{
+        padding-top: 7em;
+    }
+    .add-ann-main h1{
+        font-size: 2em;
+    }
+
+    .add-ann-inputs{
+        width: 90%;
+        grid-gap: 1em;
+        font-size: 2.5em;
+    }
+    .add-ann-game-name, .add-ann-game-username, .add-ann-desc{
+        width:90%;
+        font-size: 1.3em;
+    }
+    .add-ann-inputs input{
+        width:55%;
+    }
+    .add-ann-inputs input, .add-ann-inputs textarea{
+        border-radius: 4em;
+        border: none;
+        padding:0.7em;
+        height: 1.6em;
+        font-size: 0.9em;
+    }
+    .add-ann-inputs textarea{
+        padding:0.9em;
+        border-radius: 1em;
+        min-width:53%;
+        max-width:53%;
+        min-height: 5.8em;
+        max-height: 5.8em;
+    }
+
+    .add-ann-inputs button{
+        width: 90%;
+        font-size: 1em;
     }
 }

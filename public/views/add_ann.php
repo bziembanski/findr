@@ -22,7 +22,7 @@
                 ?>
             </div>
             <label class="add-ann-game-name">Game name<input type="text" name="gameName"></label>
-            <label class="add-ann-game-name">Ingame username<input type="text" name="gameUsername"></label>
+            <label class="add-ann-game-username">Ingame username<input type="text" name="gameUsername"></label>
             <label class="add-ann-desc">Description<textarea maxlength="100" placeholder="Tell us something about your play style, rank etc." name="desc"></textarea></label>
             <button>Add</button>
         </form>
